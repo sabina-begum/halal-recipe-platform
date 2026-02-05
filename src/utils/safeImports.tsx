@@ -23,7 +23,7 @@ export const safeImports = {
     } catch (error) {
       console.warn(
         "React not available:",
-        (error as { message?: string }).message,
+        (error as { message?: string }).message
       );
       return null;
     }
@@ -67,7 +67,7 @@ export const safeImports = {
     } catch (error) {
       console.warn(
         "React Router not available:",
-        (error as { message?: string }).message,
+        (error as { message?: string }).message
       );
       return {
         Link: ({ to }: { to: string }) => <a href={to}>{to}</a>,
@@ -88,7 +88,7 @@ export const safeImports = {
     } catch (error) {
       console.warn(
         "React Helmet not available:",
-        (error as { message?: string }).message,
+        (error as { message?: string }).message
       );
       return {
         Helmet: () => null,
@@ -98,26 +98,104 @@ export const safeImports = {
     }
   },
 
+  // Fallback SVG icons when Lucide is unavailable (real SVG, not emoji)
+  _lucideFallbacks: {
+    Crown: (props: { className?: string }) => (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className={props.className}
+        aria-hidden
+      >
+        <path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7z" />
+        <path d="M5 16h14" />
+      </svg>
+    ),
+    Search: (props: { className?: string }) => (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className={props.className}
+        aria-hidden
+      >
+        <circle cx="11" cy="11" r="8" />
+        <path d="m21 21-4.35-4.35" />
+      </svg>
+    ),
+    Menu: (props: { className?: string }) => (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className={props.className}
+        aria-hidden
+      >
+        <line x1="4" x2="20" y1="12" y2="12" />
+        <line x1="4" x2="20" y1="6" y2="6" />
+        <line x1="4" x2="20" y1="18" y2="18" />
+      </svg>
+    ),
+    X: (props: { className?: string }) => (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className={props.className}
+        aria-hidden
+      >
+        <path d="M18 6 6 18" />
+        <path d="m6 6 12 12" />
+      </svg>
+    ),
+  },
+
   // Safely import Lucide icons
   async getLucideIcons() {
+    const fallbacks = this._lucideFallbacks;
     try {
       const lucide = await import("lucide-react");
       return {
-        Crown: lucide.Crown || (() => <span>👑</span>),
-        Search: lucide.Search || (() => <span>🔍</span>),
-        Menu: lucide.Menu || (() => <span>☰</span>),
-        X: lucide.X || (() => <span>✕</span>),
+        Crown: lucide.Crown || fallbacks.Crown,
+        Search: lucide.Search || fallbacks.Search,
+        Menu: lucide.Menu || fallbacks.Menu,
+        X: lucide.X || fallbacks.X,
       };
     } catch (error) {
       console.warn(
         "Lucide icons not available:",
-        (error as { message?: string }).message,
+        (error as { message?: string }).message
       );
       return {
-        Crown: () => <span>👑</span>,
-        Search: () => <span>🔍</span>,
-        Menu: () => <span>☰</span>,
-        X: () => <span>✕</span>,
+        Crown: fallbacks.Crown,
+        Search: fallbacks.Search,
+        Menu: fallbacks.Menu,
+        X: fallbacks.X,
       };
     }
   },
@@ -130,7 +208,7 @@ export const safeImports = {
     } catch (error) {
       console.warn(
         "Firebase not available:",
-        (error as { message?: string }).message,
+        (error as { message?: string }).message
       );
       return null;
     }
@@ -144,7 +222,7 @@ export const safeImports = {
     } catch (error) {
       console.warn(
         "Firebase Auth not available:",
-        (error as { message?: string }).message,
+        (error as { message?: string }).message
       );
       return null;
     }
@@ -158,7 +236,7 @@ export const safeImports = {
     } catch (error) {
       console.warn(
         `${moduleName} not available:`,
-        (error as { message?: string }).message,
+        (error as { message?: string }).message
       );
       return fallback;
     }
