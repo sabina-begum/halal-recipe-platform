@@ -4,6 +4,7 @@
  */
 
 import { computeCookingAnalytics } from "./cookingAnalyticsUtils";
+import type { AchievementIconKey } from "./cookingAnalyticsUtils";
 
 export interface CookingStats {
   totalRecipesCooked: number;
@@ -54,6 +55,7 @@ export interface Achievement {
   earned: boolean;
   date?: string;
   progress?: number;
+  icon: AchievementIconKey;
 }
 export interface Recommendation {
   type: string;
@@ -108,18 +110,21 @@ const LOCKED_ACHIEVEMENTS: Omit<Achievement, "id">[] = [
     description: "Cook 3 recipes in one week",
     earned: false,
     progress: 0,
+    icon: "star",
   },
   {
     name: "Streak Master",
     description: "7-day cooking streak",
     earned: false,
     progress: 0,
+    icon: "chef-hat",
   },
   {
     name: "Cuisine Explorer",
     description: "Try 5 different cuisines",
     earned: false,
     progress: 0,
+    icon: "globe",
   },
 ];
 
@@ -129,7 +134,7 @@ const LOCKED_ACHIEVEMENTS: Omit<Achievement, "id">[] = [
  */
 export function computeAdvancedAnalytics(
   userId: string,
-  isDemoUser: boolean,
+  isDemoUser: boolean
 ): AdvancedAnalyticsData {
   const cooking = computeCookingAnalytics(userId, isDemoUser);
 
@@ -160,6 +165,7 @@ export function computeAdvancedAnalytics(
     description: a.description,
     earned: true,
     date: a.earned,
+    icon: a.icon,
   }));
   let nextId = achievements.length + 1;
   for (const a of LOCKED_ACHIEVEMENTS) {
@@ -169,11 +175,12 @@ export function computeAdvancedAnalytics(
       description: a.description,
       earned: false,
       progress: a.progress ?? 0,
+      icon: a.icon,
     });
   }
 
   const preferredCuisines = (cooking.favoriteCuisines ?? []).map(
-    (c) => c.cuisine,
+    (c) => c.cuisine
   );
   const preferences: Preferences = {
     ...DEFAULT_PREFERENCES,

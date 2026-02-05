@@ -28,11 +28,26 @@ import {
   Zap,
   Award,
   BarChart3,
+  BookOpen,
+  BookMarked,
+  Globe,
 } from "lucide-react";
+import type { AchievementIconKey } from "../utils/cookingAnalyticsUtils";
 
 interface AdvancedAnalyticsProps {
   darkMode: boolean;
 }
+
+const ACHIEVEMENT_ICONS: Record<
+  AchievementIconKey,
+  React.ComponentType<{ className?: string }>
+> = {
+  star: Star,
+  "book-open": BookOpen,
+  book: BookMarked,
+  globe: Globe,
+  "chef-hat": ChefHat,
+};
 
 const AdvancedAnalytics: React.FC<AdvancedAnalyticsProps> = ({ darkMode }) => {
   const { currentUser, isDemoUser } = useAuth();
@@ -143,8 +158,8 @@ const AdvancedAnalytics: React.FC<AdvancedAnalyticsProps> = ({ darkMode }) => {
       100,
       Math.max(
         0,
-        Math.round((recipesPerHour * 10 + ratingBonus + streakBonus) * 100),
-      ),
+        Math.round((recipesPerHour * 10 + ratingBonus + streakBonus) * 100)
+      )
     );
   }, [analytics]);
 
@@ -452,8 +467,8 @@ const AdvancedAnalytics: React.FC<AdvancedAnalyticsProps> = ({ darkMode }) => {
                       ? "bg-green-900 border-green-600"
                       : "bg-green-50 border-green-200"
                     : darkMode
-                      ? "bg-gray-700 border-gray-500"
-                      : "bg-gray-50 border-gray-200"
+                    ? "bg-gray-700 border-gray-500"
+                    : "bg-gray-50 border-gray-200"
                 }`}
               >
                 <div className="flex items-center space-x-3">
@@ -464,13 +479,27 @@ const AdvancedAnalytics: React.FC<AdvancedAnalyticsProps> = ({ darkMode }) => {
                         : "bg-stone-100 dark:bg-stone-600"
                     }`}
                   >
-                    <Award
-                      className={`w-5 h-5 ${
-                        achievement.earned
-                          ? "text-green-600 dark:text-green-400"
-                          : "text-gray-400"
-                      }`}
-                    />
+                    {(() => {
+                      const iconKey = (
+                        achievement as Achievement & {
+                          icon: AchievementIconKey;
+                        }
+                      ).icon;
+                      const IconComponent =
+                        iconKey in ACHIEVEMENT_ICONS
+                          ? ACHIEVEMENT_ICONS[iconKey]
+                          : Award;
+                      return (
+                        <IconComponent
+                          className={`w-5 h-5 ${
+                            achievement.earned
+                              ? "text-green-600 dark:text-green-400"
+                              : "text-gray-400"
+                          }`}
+                          aria-hidden
+                        />
+                      );
+                    })()}
                   </div>
                   <div className="flex-1">
                     <p
@@ -480,8 +509,8 @@ const AdvancedAnalytics: React.FC<AdvancedAnalyticsProps> = ({ darkMode }) => {
                             ? "text-white"
                             : "text-gray-900"
                           : darkMode
-                            ? "text-gray-400"
-                            : "text-gray-600"
+                          ? "text-gray-400"
+                          : "text-gray-600"
                       }`}
                     >
                       {achievement.name}
@@ -578,7 +607,7 @@ const AdvancedAnalytics: React.FC<AdvancedAnalyticsProps> = ({ darkMode }) => {
                     </div>
                   </div>
                 </div>
-              ),
+              )
             )
           )}
         </div>
