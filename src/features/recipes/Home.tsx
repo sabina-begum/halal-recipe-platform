@@ -69,7 +69,7 @@ export default function HomePage({
   const { isFavorite, favoriteLoading, toggleFavorite } = useFavorites(
     currentUser,
     selected,
-    isDemoUser,
+    isDemoUser
   );
   const [toolsExpanded, setToolsExpanded] = useState(false);
 
@@ -91,7 +91,7 @@ export default function HomePage({
   }, [selected]);
   const handleToolsToggle = useCallback(
     () => setToolsExpanded((prev) => !prev),
-    [],
+    []
   );
 
   const featured = useMemo(() => getFeaturedRecipes(), []);
@@ -102,92 +102,92 @@ export default function HomePage({
 
     return (
       <div className="bg-main text-main min-h-screen w-full">
-        {/* Hero Section — full width, height contained */}
+        {/* Hero Section — full width background, centered content */}
         <div className="w-screen max-w-none px-0 ml-[calc(50%-50vw)] mr-[calc(50%-50vw)] flex flex-col md:flex-row items-center justify-center min-h-[80vh] md:min-h-[90vh] bg-stone-50 dark:bg-neutral-900">
           <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
-          {/* Left: Hero Text & CTA */}
-          <div className="flex-1 flex flex-col items-center md:items-start justify-center py-12 md:py-0 max-w-2xl">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 text-neutral-900 dark:text-neutral-100 tracking-tight text-center md:text-left">
-              Discover recipes to try at home
-            </h2>
-            <p className="text-lg md:text-xl text-muted-foreground mb-8 text-center md:text-left max-w-xl">
-              Browse featured recipes, save favorites, plan meals, and build
-              shopping lists—all in one place. Recipes shown don&apos;t include
-              pork or alcohol; enabling you to cook with halal ingredients from
-              your usual shops.
-            </p>
-            <a
-              href="#featured"
-              className="inline-block px-8 py-3 rounded-lg bg-gradient-to-r from-green-600 to-emerald-600 text-white font-semibold text-lg hover:bg-green-700 transition-colors mb-8 md:mb-0"
-            >
-              Explore featured recipes
-            </a>
-            <div className="mt-10 border-t pt-8 w-full bg-green-50 dark:bg-green-900/20 rounded-lg p-6">
-              <h2 className="text-2xl font-bold mb-2 text-green-700 dark:text-green-300">
-                Featured: {mainFeatured.name}
+            {/* Left: Hero Text & CTA */}
+            <div className="flex-1 flex flex-col items-center md:items-start justify-center py-12 md:py-0 max-w-2xl">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 text-neutral-900 dark:text-neutral-100 tracking-tight text-center md:text-left">
+                Discover recipes to try at home
               </h2>
-              <p className="text-base text-muted-foreground mb-2">
-                {mainFeatured.description}
+              <p className="text-lg md:text-xl text-muted-foreground mb-8 text-center md:text-left max-w-xl">
+                Browse featured recipes, save favorites, plan meals, and build
+                shopping lists—all in one place. Recipes shown don&apos;t
+                include pork or alcohol; enabling you to cook with halal
+                ingredients from your usual shops.
               </p>
-              <div className="flex justify-start items-center gap-4 mt-4">
-                <span className="inline-block bg-yellow-50 text-yellow-700 px-3 py-1 rounded-full text-sm font-medium border border-yellow-200">
-                  ⭐ {mainFeatured.rating.toFixed(1)}
-                </span>
-                {mainFeatured.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="inline-block bg-green-50 text-green-700 px-3 py-1 rounded-full text-sm font-medium border border-green-200"
-                  >
-                    {tag}
+              <a
+                href="#featured"
+                className="inline-block px-8 py-3 rounded-lg bg-gradient-to-r from-green-600 to-emerald-600 text-white font-semibold text-lg hover:bg-green-700 transition-colors mb-8 md:mb-0"
+              >
+                Explore featured recipes
+              </a>
+              <div className="mt-10 border-t pt-8 w-full bg-green-50 dark:bg-green-900/20 rounded-lg p-6">
+                <h2 className="text-2xl font-bold mb-2 text-green-700 dark:text-green-300">
+                  Featured: {mainFeatured.name}
+                </h2>
+                <p className="text-base text-muted-foreground mb-2">
+                  {mainFeatured.description}
+                </p>
+                <div className="flex justify-start items-center gap-4 mt-4">
+                  <span className="inline-block bg-yellow-50 text-yellow-700 px-3 py-1 rounded-full text-sm font-medium border border-yellow-200">
+                    ⭐ {mainFeatured.rating.toFixed(1)}
                   </span>
-                ))}
+                  {mainFeatured.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="inline-block bg-green-50 text-green-700 px-3 py-1 rounded-full text-sm font-medium border border-green-200"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* Right: Food Images Grid */}
-          <div className="flex-1 flex items-center justify-center w-full h-full py-8 md:py-0">
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-1 lg:grid-cols-1 w-full max-w-lg">
-              <div className="grid grid-cols-2 gap-4">
-                {heroImages[0] && (
+            {/* Right: Food Images Grid */}
+            <div className="flex-1 flex items-center justify-center w-full h-full py-8 md:py-0">
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-1 lg:grid-cols-1 w-full max-w-lg">
+                <div className="grid grid-cols-2 gap-4">
+                  {heroImages[0] && (
+                    <img
+                      src={heroImages[0].image}
+                      alt={heroImages[0].name}
+                      className="rounded-2xl shadow-md object-cover w-full h-40 md:h-56 lg:h-64 border border-border"
+                      style={{ background: "#fffbe6" }}
+                      loading="lazy"
+                      onError={() =>
+                        console.log("Failed to load:", heroImages[0]?.image)
+                      }
+                    />
+                  )}
+                  {heroImages[1] && (
+                    <img
+                      src={heroImages[1].image}
+                      alt={heroImages[1].name}
+                      className="rounded-2xl shadow-md object-cover w-full h-40 md:h-56 lg:h-64 border border-border"
+                      style={{ background: "#ffe5d9" }}
+                      loading="lazy"
+                      onError={() =>
+                        console.log("Failed to load:", heroImages[1]?.image)
+                      }
+                    />
+                  )}
+                </div>
+                {heroImages[2] && (
                   <img
-                    src={heroImages[0].image}
-                    alt={heroImages[0].name}
-                    className="rounded-2xl shadow-md object-cover w-full h-40 md:h-56 lg:h-64 border border-border"
-                    style={{ background: "#fffbe6" }}
+                    src={heroImages[2].image}
+                    alt={heroImages[2].name}
+                    className="rounded-2xl shadow-md object-cover w-full h-40 md:h-56 lg:h-64 border border-border mt-4"
+                    style={{ background: "#f8f8f8" }}
                     loading="lazy"
                     onError={() =>
-                      console.log("Failed to load:", heroImages[0]?.image)
-                    }
-                  />
-                )}
-                {heroImages[1] && (
-                  <img
-                    src={heroImages[1].image}
-                    alt={heroImages[1].name}
-                    className="rounded-2xl shadow-md object-cover w-full h-40 md:h-56 lg:h-64 border border-border"
-                    style={{ background: "#ffe5d9" }}
-                    loading="lazy"
-                    onError={() =>
-                      console.log("Failed to load:", heroImages[1]?.image)
+                      console.log("Failed to load:", heroImages[2]?.image)
                     }
                   />
                 )}
               </div>
-              {heroImages[2] && (
-                <img
-                  src={heroImages[2].image}
-                  alt={heroImages[2].name}
-                  className="rounded-2xl shadow-md object-cover w-full h-40 md:h-56 lg:h-64 border border-border mt-4"
-                  style={{ background: "#f8f8f8" }}
-                  loading="lazy"
-                  onError={() =>
-                    console.log("Failed to load:", heroImages[2]?.image)
-                  }
-                />
-              )}
             </div>
-          </div>
           </div>
         </div>
 
