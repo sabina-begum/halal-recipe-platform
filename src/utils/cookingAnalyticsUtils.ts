@@ -43,11 +43,19 @@ export interface CookingGoals {
   currentWeekTime: number;
   currentMonthVariety: number;
 }
+/** Icon key for rendering Lucide SVG in UI (e.g. Star, BookOpen, ChefHat). */
+export type AchievementIconKey =
+  | "star"
+  | "book-open"
+  | "book"
+  | "globe"
+  | "chef-hat";
+
 export interface Achievement {
   name: string;
   description: string;
   earned: string;
-  icon: string;
+  icon: AchievementIconKey;
 }
 export interface AnalyticsData {
   totalRecipes: number;
@@ -102,7 +110,7 @@ interface EnrichedRecipe {
 
 function getEnrichedRecipes(
   userId: string,
-  isDemoUser: boolean,
+  isDemoUser: boolean
 ): EnrichedRecipe[] {
   const byId = new Map<string, EnrichedRecipe>();
 
@@ -124,7 +132,7 @@ function getEnrichedRecipes(
   } else {
     try {
       favorites = JSON.parse(
-        localStorage.getItem(`favorites_${userId}`) || "[]",
+        localStorage.getItem(`favorites_${userId}`) || "[]"
       );
     } catch {
       favorites = [];
@@ -163,7 +171,7 @@ function getEnrichedRecipes(
   } else {
     try {
       collections = JSON.parse(
-        localStorage.getItem(`collections_${userId}`) || "[]",
+        localStorage.getItem(`collections_${userId}`) || "[]"
       );
     } catch {
       collections = [];
@@ -273,7 +281,7 @@ function buildTopIngredients(recipes: EnrichedRecipe[]): IngredientStat[] {
 
 function buildAchievements(
   recipes: EnrichedRecipe[],
-  cuisineCount: number,
+  cuisineCount: number
 ): Achievement[] {
   const list: Achievement[] = [];
   const total = recipes.length;
@@ -287,35 +295,35 @@ function buildAchievements(
       name: "First Recipe",
       description: "Added your first recipe",
       earned: now,
-      icon: "🌟",
+      icon: "star",
     });
   if (total >= 5)
     list.push({
       name: "Getting Started",
       description: "5 recipes in your kitchen",
       earned: now,
-      icon: "📖",
+      icon: "book-open",
     });
   if (total >= 10)
     list.push({
       name: "Recipe Collector",
       description: "10 recipes saved",
       earned: now,
-      icon: "📚",
+      icon: "book",
     });
   if (cuisineCount >= 3)
     list.push({
       name: "Variety",
       description: "Tried 3 or more cuisines",
       earned: now,
-      icon: "🌍",
+      icon: "globe",
     });
   if (total >= 20)
     list.push({
       name: "Chef in the Making",
       description: "20 recipes in your collection",
       earned: now,
-      icon: "👨‍🍳",
+      icon: "chef-hat",
     });
 
   return list;
@@ -327,13 +335,13 @@ function buildAchievements(
  */
 export function computeCookingAnalytics(
   userId: string,
-  isDemoUser: boolean,
+  isDemoUser: boolean
 ): AnalyticsData {
   const recipes = getEnrichedRecipes(userId, isDemoUser);
   const totalRecipes = recipes.length;
   const totalCookingTime = recipes.reduce(
     (sum, r) => sum + r.cookTimeMinutes,
-    0,
+    0
   );
   const ratingSum = recipes.reduce((sum, r) => sum + r.rating, 0);
   const averageRating =
