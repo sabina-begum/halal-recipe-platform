@@ -31,7 +31,7 @@ import { extractIngredientsFromRecipe } from "./utils/apiUtils";
 import { isHalal } from "./utils/halal";
 import Toast from "./components/Toast";
 import { AuthProvider } from "./contexts/AuthContext";
-import type { Recipe } from "./global";
+import type { Recipe } from "./types/global";
 import { featuredRecipes, featuredRecipeToRecipe } from "./data/recipes";
 
 // Lazy load components for better performance

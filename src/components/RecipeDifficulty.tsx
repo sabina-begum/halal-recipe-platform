@@ -11,7 +11,7 @@
  * Educational use only - Commercial use prohibited.
  */
 
-import type { Recipe } from "../global";
+import type { Recipe } from "../types/global";
 
 interface RecipeDifficultyProps {
   recipe: Recipe;
@@ -253,4 +253,3 @@ const RecipeDifficulty = ({ recipe, darkMode }: RecipeDifficultyProps) => {
 };
 
 export default RecipeDifficulty;
-

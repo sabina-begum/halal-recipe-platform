@@ -1,5 +1,5 @@
 // src/data/recipes.ts
-import type { Recipe } from "../global";
+import type { Recipe } from "../types/global";
 
 export interface FeaturedRecipe {
   id: string;

@@ -3,7 +3,7 @@ import Favorites from "../Favorites";
 import { AuthContext } from "../../contexts/AuthContextDef";
 import { MemoryRouter } from "react-router-dom";
 import { jest, describe, beforeEach, it } from "@jest/globals";
-import type { AuthContextType } from "../../global"
+import type { AuthContextType } from "../../types/global";
 
 jest.mock("firebase/auth", () => ({
   createUserWithEmailAndPassword: jest.fn(),
@@ -31,7 +31,7 @@ describe("Favorites", () => {
         <MemoryRouter>
           <Favorites darkMode={false} />
         </MemoryRouter>
-      </AuthContext.Provider>
+      </AuthContext.Provider>,
     );
     await screen.findByText(/My Favorites/i);
     await screen.findByText(/No favorites yet/i);

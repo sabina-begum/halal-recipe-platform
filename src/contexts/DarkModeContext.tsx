@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
-import type { DarkModeContextType } from "../global";
+import type { DarkModeContextType } from "../types/global";
 
 const DarkModeContext = createContext<DarkModeContextType | null>(null);
 
@@ -47,4 +47,3 @@ export function DarkModeProvider({ children }: { children: React.ReactNode }) {
 export function useDarkMode() {
   return useContext(DarkModeContext);
 }
-

@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { useAuth } from "../contexts/useAuth";
 import { computeAdvancedAnalytics } from "../utils/advancedAnalyticsUtils";
-import AIRecommendations from "./AIRecommendations";
+import AIRecommendations from "../components/AIRecommendations";
 
 interface RecommendationsPageProps {
   darkMode: boolean;

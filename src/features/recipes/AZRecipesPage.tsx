@@ -19,7 +19,7 @@ import Button from "../../components/ui/Button";
 import OptimizedImage from "../../components/ui/OptimizedImage";
 import performanceService from "../../services/performanceService";
 import { isHalal } from "../../utils/halal";
-import type { Recipe } from "../../global";
+import type { Recipe } from "../../types/global";
 
 interface Meal {
   idMeal: string;

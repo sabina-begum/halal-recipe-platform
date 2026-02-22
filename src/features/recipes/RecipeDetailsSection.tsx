@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import type { Recipe, NutritionData } from "../../global";
+import type { Recipe, NutritionData } from "../../types/global";
 import { cleanInstruction, isMeaningfulStep } from "../../utils/textFormatters";
 import FoodCategory from "../../components/FoodCategory";
 import Ingredients from "../../components/Ingredients";
