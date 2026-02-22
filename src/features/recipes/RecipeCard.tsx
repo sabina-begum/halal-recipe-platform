@@ -1,4 +1,4 @@
-import type { Recipe } from "../../global";
+import type { Recipe } from "../../types/global";
 
 interface RecipeCardProps {
   selected: Recipe;
@@ -70,11 +70,11 @@ export default function RecipeCard({
                   onClick={() => {
                     const url = encodeURIComponent(window.location.href);
                     const text = encodeURIComponent(
-                      `Check out this amazing recipe: ${selected.strMeal}`
+                      `Check out this amazing recipe: ${selected.strMeal}`,
                     );
                     window.open(
                       `https://twitter.com/intent/tweet?url=${url}&text=${text}`,
-                      "_blank"
+                      "_blank",
                     );
                   }}
                   className="compact-button-compact flex items-center gap-1 bg-blue-500 text-white hover:bg-blue-600 whitespace-nowrap min-w-[60px] px-1 text-xs sm:min-w-[80px] sm:px-2 sm:text-sm md:min-w-[100px] md:px-6 md:text-base py-2"
@@ -93,7 +93,7 @@ export default function RecipeCard({
                     const url = encodeURIComponent(window.location.href);
                     window.open(
                       `https://www.facebook.com/sharer/sharer.php?u=${url}`,
-                      "_blank"
+                      "_blank",
                     );
                   }}
                   className="flex items-center gap-1 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors whitespace-nowrap min-w-[60px] px-1 text-xs sm:min-w-[80px] sm:px-2 sm:text-sm md:min-w-[100px] md:px-6 md:text-base py-2"
@@ -160,10 +160,10 @@ export default function RecipeCard({
                       favoriteLoading
                         ? "opacity-50 cursor-not-allowed"
                         : isFavorite
-                        ? "bg-red-500 text-white hover:bg-red-600 shadow-md"
-                        : darkMode
-                        ? "bg-neutral-800 text-stone-300 hover:bg-stone-800 hover:shadow-md"
-                        : "bg-gray-100 text-gray-700 hover:bg-gray-200 hover:shadow-md"
+                          ? "bg-red-500 text-white hover:bg-red-600 shadow-md"
+                          : darkMode
+                            ? "bg-neutral-800 text-stone-300 hover:bg-stone-800 hover:shadow-md"
+                            : "bg-gray-100 text-gray-700 hover:bg-gray-200 hover:shadow-md"
                     }`}
                   >
                     {favoriteLoading ? (
@@ -174,8 +174,8 @@ export default function RecipeCard({
                           isFavorite
                             ? "text-white"
                             : darkMode
-                            ? "text-red-400"
-                            : "text-red-500"
+                              ? "text-red-400"
+                              : "text-red-500"
                         }`}
                         fill={isFavorite ? "currentColor" : "none"}
                         stroke="currentColor"
@@ -193,8 +193,8 @@ export default function RecipeCard({
                       {favoriteLoading
                         ? "Saving..."
                         : isFavorite
-                        ? "In Favorites"
-                        : "Add to Favorites"}
+                          ? "In Favorites"
+                          : "Add to Favorites"}
                     </span>
                   </button>
                 </div>

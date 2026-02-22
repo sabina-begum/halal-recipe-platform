@@ -13,7 +13,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { useAuth } from "../../contexts/useAuth";
-import type { Review, User } from "../../global";
+import type { Review, User } from "../../types/global";
 import {
   Star,
   ThumbsUp,

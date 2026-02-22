@@ -1,6 +1,6 @@
 import { describe, it, expect } from "@jest/globals";
 import { isHalal, isNonHalalIngredient } from "../halal";
-import type { Recipe } from "../../global";
+import type { Recipe } from "../../types/global";
 
 describe("isHalal", () => {
   it("returns false for null or undefined", () => {

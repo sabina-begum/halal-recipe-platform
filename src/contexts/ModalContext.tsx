@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useCallback } from "react";
-import type { ModalContextType } from "../global";
+import type { ModalContextType } from "../types/global";
 
 const ModalContext = createContext<ModalContextType | null>(null);
 
@@ -28,4 +28,3 @@ export function ModalProvider({ children }: { children: React.ReactNode }) {
 export function useModal() {
   return useContext(ModalContext);
 }
-

@@ -15,7 +15,7 @@ import { useState, useMemo, useCallback } from "react";
 import { Link } from "react-router-dom";
 
 import { useAuth } from "../../contexts/useAuth";
-import type { Recipe, NutritionData, User } from "../../global";
+import type { Recipe, NutritionData, User } from "../../types/global";
 
 import FoodCategory from "../../components/FoodCategory";
 import Ingredients from "../../components/Ingredients";
@@ -69,7 +69,7 @@ export default function HomePage({
   const { isFavorite, favoriteLoading, toggleFavorite } = useFavorites(
     currentUser,
     selected,
-    isDemoUser
+    isDemoUser,
   );
   const [toolsExpanded, setToolsExpanded] = useState(false);
 
@@ -91,7 +91,7 @@ export default function HomePage({
   }, [selected]);
   const handleToolsToggle = useCallback(
     () => setToolsExpanded((prev) => !prev),
-    []
+    [],
   );
 
   const featured = useMemo(() => getFeaturedRecipes(), []);

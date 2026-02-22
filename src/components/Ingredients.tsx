@@ -12,7 +12,7 @@
  */
 
 import { parseIngredients } from "../utils/ingredientUtils";
-import type { Recipe } from "../global";
+import type { Recipe } from "../types/global";
 
 interface IngredientsProps {
   recipe: unknown;
@@ -55,4 +55,3 @@ function Ingredients({ recipe, darkMode }: IngredientsProps) {
 }
 
 export default Ingredients;
-

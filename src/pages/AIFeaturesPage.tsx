@@ -23,11 +23,11 @@ import {
   ShoppingCart,
   Calendar,
 } from "lucide-react";
-import HeadManager from "./HeadManager";
-import VoiceSearch from "./VoiceSearch";
-import AIRecommendations from "./AIRecommendations";
-import AISubstitutions from "./AISubstitutions";
-import Nutrition, { NutritionData } from "./Nutrition";
+import HeadManager from "../components/HeadManager";
+import VoiceSearch from "../components/VoiceSearch";
+import AIRecommendations from "../components/AIRecommendations";
+import AISubstitutions from "../components/AISubstitutions";
+import Nutrition, { NutritionData } from "../components/Nutrition";
 
 interface AIFeaturesPageProps {
   darkMode: boolean;

@@ -22,7 +22,7 @@ import {
   sendPasswordResetEmail,
 } from "firebase/auth";
 import { AuthContext } from "./AuthContextDef";
-import type { User } from "../global";
+import type { User } from "../types/global";
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
@@ -39,7 +39,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         const result = await createUserWithEmailAndPassword(
           auth,
           email as string,
-          password as string
+          password as string,
         );
 
         // Update profile with display name
@@ -58,7 +58,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         setLoading(false);
       }
     },
-    []
+    [],
   );
 
   // Memoized login function with useCallback
@@ -69,7 +69,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       return await signInWithEmailAndPassword(
         auth,
         email as string,
-        password as string
+        password as string,
       );
     } catch (error: unknown) {
       const errorMessage = (error as { message?: string }).message;
@@ -173,7 +173,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       clearError,
       handleDemoLogin,
       isDemoUser,
-    ]
+    ],
   );
 
   // Remove debug log

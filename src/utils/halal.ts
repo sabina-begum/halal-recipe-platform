@@ -1,4 +1,4 @@
-import type { Recipe } from "../global";
+import type { Recipe } from "../types/global";
 
 const NON_HALAL_TERMS = [
   "pork",
@@ -49,5 +49,7 @@ export function isHalal(recipe: Recipe | null | undefined): boolean {
 /** Returns true if the ingredient name is a known non-halal term (skip when building suggestions). */
 export function isNonHalalIngredient(ingredient: string): boolean {
   const lower = ingredient.toLowerCase().trim();
-  return NON_HALAL_TERMS.some((term) => lower.includes(term) || term.includes(lower));
+  return NON_HALAL_TERMS.some(
+    (term) => lower.includes(term) || term.includes(lower),
+  );
 }
