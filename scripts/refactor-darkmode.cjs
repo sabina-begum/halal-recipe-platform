@@ -2,6 +2,13 @@ const fs = require("fs");
 const path = require("path");
 const files = getAllTsxFiles(path.join(__dirname, "..", "src"));
 
+const MANUAL_FILES = [
+  "Login.tsx",
+  "Signup.tsx",
+  "CategoriesPage.tsx",
+  "SmartNotifications.tsx",
+];
+
 function getAllTsxFiles(dir, result = []) {
   const entries = fs.readdirSync(dir, { withFileTypes: true });
 
@@ -25,6 +32,10 @@ const filesToRefactor = files.filter((filePath) => {
 console.log(`Found ${filesToRefactor.length} files to refactor`);
 
 filesToRefactor.forEach((filePath) => {
+  if (MANUAL_FILES.some((name) => filePath.endsWith(name))) {
+    console.log("SKIP (manual):", filePath);
+    return;
+  }
   let content = fs.readFileSync(filePath, "utf8");
   if (!content.includes("=> {") && !content.match(/function \w+\(/)) {
     console.log("SKIP (implicit return):", filePath);
@@ -42,14 +53,13 @@ filesToRefactor.forEach((filePath) => {
   // 2. Add hook inside component
   const before = content;
   content = content.replace(
-    /=> \{\n/,
-    `=> {\n  const { darkMode } = useDarkMode()!;\n`,
+    /^const \w+ = .*=> \{\n/m,
+    (match) => match + `  const { darkMode } = useDarkMode()!;\n`,
   );
 
   if (content === before) {
-    // arrow function replace didn't match, try function declaration
     content = content.replace(
-      /function \w+\([^)]*\)\s*\{\n/,
+      /^function \w+\([^)]*\)\s*\{\n/m,
       (match) => match + `  const { darkMode } = useDarkMode()!;\n`,
     );
   }
