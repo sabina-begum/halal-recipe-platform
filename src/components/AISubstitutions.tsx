@@ -1,3 +1,4 @@
+import { useDarkMode } from "@/contexts/DarkModeContext";
 /**
  * Copyright (c) 2024 Sabina Begum. All rights reserved.
  *
@@ -215,7 +216,6 @@ function AISubstitutions({ darkMode, ingredients }: AISubstitutionsProps) {
                 selectedIngredient === ingredient ? "primary" : "secondary"
               }
               size="sm"
-              darkMode={darkMode}
               className="flex-shrink-0 text-xs sm:text-sm"
             >
               {ingredient}
@@ -240,7 +240,6 @@ function AISubstitutions({ darkMode, ingredients }: AISubstitutionsProps) {
                   onClick={() => handleIngredientSelect(ingredient)}
                   variant="secondary"
                   size="sm"
-                  darkMode={darkMode}
                   className="flex-shrink-0 text-xs sm:text-sm"
                 >
                   {ingredient}
@@ -267,7 +266,6 @@ function AISubstitutions({ darkMode, ingredients }: AISubstitutionsProps) {
             onClick={handleCustomIngredient}
             variant="primary"
             size="md"
-            darkMode={darkMode}
             className="flex-shrink-0 whitespace-nowrap"
           >
             Find

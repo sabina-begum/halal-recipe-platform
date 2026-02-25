@@ -1,3 +1,4 @@
+import { useDarkMode } from "@/contexts/DarkModeContext";
 /**
  * Copyright (c) 2024 Sabina Begum. All rights reserved.
  *
@@ -174,7 +175,6 @@ function VoiceSearch({ onSearch, darkMode }: VoiceSearchProps) {
           onClick={isListening ? stopListening : startListening}
           variant={isListening ? "danger" : "primary"}
           size="lg"
-          darkMode={darkMode}
           className="flex items-center space-x-2 flex-shrink-0"
         >
           {isListening ? (
@@ -215,7 +215,6 @@ function VoiceSearch({ onSearch, darkMode }: VoiceSearchProps) {
           onClick={handleSearch}
           variant="secondary"
           size="md"
-          darkMode={darkMode}
           className="flex-shrink-0"
         >
           Search
@@ -224,7 +223,6 @@ function VoiceSearch({ onSearch, darkMode }: VoiceSearchProps) {
           onClick={clearTranscript}
           variant="secondary"
           size="md"
-          darkMode={darkMode}
           className="flex-shrink-0"
         >
           Clear

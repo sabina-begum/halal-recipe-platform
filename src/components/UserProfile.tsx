@@ -1,3 +1,4 @@
+import { useDarkMode } from "@/contexts/DarkModeContext";
 /**
  * Copyright (c) 2024 Sabina Begum. All rights reserved.
  *
@@ -143,7 +144,6 @@ const UserProfile = ({ darkMode }: UserProfileProps) => {
         <ProfileHeader
           isEditing={isEditing}
           onToggleEdit={() => setIsEditing(!isEditing)}
-          darkMode={darkMode}
         />
 
         <div className="space-y-6">
@@ -153,7 +153,6 @@ const UserProfile = ({ darkMode }: UserProfileProps) => {
               setProfile((prev) => ({ ...prev, ...updates }))
             }
             isEditing={isEditing}
-            darkMode={darkMode}
           />
 
           <NutritionalGoalsSection
@@ -162,7 +161,6 @@ const UserProfile = ({ darkMode }: UserProfileProps) => {
               setProfile((prev) => ({ ...prev, ...updates }))
             }
             isEditing={isEditing}
-            darkMode={darkMode}
           />
 
           <DietaryRestrictionsSection

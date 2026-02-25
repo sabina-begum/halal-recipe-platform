@@ -1,3 +1,4 @@
+import { useDarkMode } from "@/contexts/DarkModeContext";
 /**
  * Copyright (c) 2024 Sabina Begum. All rights reserved.
  *
@@ -81,7 +82,6 @@ export default function AZRecipesPage({ darkMode }: AZRecipesPageProps) {
             key={l}
             onClick={() => setLetter(l)}
             isActive={letter === l}
-            darkMode={darkMode}
             size="lg"
             variant="primary"
           >
@@ -96,12 +96,11 @@ export default function AZRecipesPage({ darkMode }: AZRecipesPageProps) {
           size="lg"
           color="blue"
           text="Loading recipes..."
-          darkMode={darkMode}
         />
       )}
 
       {/* Error State */}
-      {error && <ErrorMessage message={error} darkMode={darkMode} />}
+      {error && <ErrorMessage message={error} />}
 
       {/* Recipes Grid */}
       {!loading && !error && (

@@ -1,3 +1,4 @@
+import { useDarkMode } from "@/contexts/DarkModeContext";
 interface ProfileHeaderProps {
   isEditing: boolean;
   onToggleEdit: () => void;

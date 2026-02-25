@@ -1,3 +1,4 @@
+import { useDarkMode } from "@/contexts/DarkModeContext";
 import ShoppingListItem from "./ShoppingListItem";
 
 interface ShoppingItem {
@@ -31,7 +32,6 @@ export default function ShoppingListItems({
           item={item}
           onRemove={() => onRemoveItem(idx)}
           onToggle={() => onToggleChecked(idx)}
-          darkMode={darkMode}
         />
       ))}
     </div>

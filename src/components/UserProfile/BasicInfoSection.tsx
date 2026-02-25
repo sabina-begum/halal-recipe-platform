@@ -1,3 +1,4 @@
+import { useDarkMode } from "@/contexts/DarkModeContext";
 interface BasicInfoSectionProps {
   profile: { displayName: string };
   setProfile: (profile: { displayName: string }) => void;

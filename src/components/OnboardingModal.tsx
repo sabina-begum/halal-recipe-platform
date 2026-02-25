@@ -1,3 +1,4 @@
+import { useDarkMode } from "@/contexts/DarkModeContext";
 import { useState } from "react";
 
 // Minimal Onboarding Modal for first-time users

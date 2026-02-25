@@ -1,3 +1,4 @@
+import { useDarkMode } from "@/contexts/DarkModeContext";
 /**
  * Copyright (c) 2024 Sabina Begum. All rights reserved.
  *
@@ -246,13 +247,13 @@ export default function HomePage({
               <h2 className="text-xl font-semibold mb-4 text-green-900 dark:text-green-300">
                 Quick Access
               </h2>
-              <QuickAccessSection darkMode={darkMode} />
+              <QuickAccessSection />
             </div>
             <div>
               <h2 className="text-xl font-semibold mb-4 text-green-900 dark:text-green-300">
                 Our Services
               </h2>
-              <ServicesSection darkMode={darkMode} />
+              <ServicesSection />
             </div>
           </div>
         </section>
@@ -267,8 +268,8 @@ export default function HomePage({
     <div className="bg-main text-main min-h-screen">
       <div>
         <RecipeMetaHelmet selected={selected} nutritionData={nutritionData} />
-        {loading && <LoadingSkeleton darkMode={darkMode} />}
-        {error && <ErrorMessage message={error} darkMode={darkMode} />}
+        {loading && <LoadingSkeleton />}
+        {error && <ErrorMessage message={error} />}
         {/* Recipe Card */}
         {!loading && selected && (
           <section
@@ -278,7 +279,6 @@ export default function HomePage({
             <h2 className="text-2xl font-semibold mb-4">Recipe</h2>
             <RecipeCard
               selected={selected}
-              darkMode={darkMode}
               generateFoodDescription={memoizedDescription}
               isFavorite={isFavorite}
               favoriteLoading={favoriteLoading}
@@ -293,18 +293,16 @@ export default function HomePage({
             <h2 className="text-xl font-semibold mb-4">
               Category & Ingredients
             </h2>
-            <FoodCategory category={selected.strCategory} darkMode={darkMode} />
-            <Ingredients recipe={selected} darkMode={darkMode} />
+            <FoodCategory category={selected.strCategory} />
+            <Ingredients recipe={selected} />
           </div>
           <div className="space-y-4">
             <h2 className="text-xl font-semibold mb-4">Method & Nutrition</h2>
             <Instructions
               instructions={selected.strInstructions}
-              darkMode={darkMode}
             />
             <Nutrition
               nutrition={nutritionData || {}}
-              darkMode={darkMode}
               loading={nutritionLoading}
             />
           </div>
@@ -314,7 +312,7 @@ export default function HomePage({
           {/* Leftover Ideas */}
           <div className="col-span-1 md:col-span-3 flex flex-col">
             <h2 className="text-lg font-medium mb-4">Leftover Ideas</h2>
-            <LeftoverIntegration recipe={selected} darkMode={darkMode} />
+            <LeftoverIntegration recipe={selected} />
           </div>
           {/* Adjust Servings */}
           <div className="flex flex-col p-0 h-full">
@@ -324,12 +322,12 @@ export default function HomePage({
               </div>
               {toolsExpanded ? (
                 <div className="p-4 pt-0 flex-1 flex flex-col">
-                  <RecipeScaling recipe={selected} darkMode={darkMode} />
+                  <RecipeScaling recipe={selected} />
                 </div>
               ) : (
                 <div className="relative flex-1 flex flex-col justify-between h-full">
                   <div className="p-4 pt-0 flex-1 overflow-hidden max-h-24">
-                    <RecipeScaling recipe={selected} darkMode={darkMode} />
+                    <RecipeScaling recipe={selected} />
                   </div>
                   <div className="absolute bottom-12 left-0 w-full h-14 bg-gradient-to-t from-white/95 dark:from-neutral-900/95 to-transparent pointer-events-none transition-all duration-200" />
                 </div>
@@ -344,12 +342,12 @@ export default function HomePage({
               </div>
               {toolsExpanded ? (
                 <div className="p-4 pt-0 flex-1 flex flex-col">
-                  <RecipeDifficulty recipe={selected} darkMode={darkMode} />
+                  <RecipeDifficulty recipe={selected} />
                 </div>
               ) : (
                 <div className="relative flex-1 flex flex-col justify-between h-full">
                   <div className="p-4 pt-0 flex-1 overflow-hidden max-h-24">
-                    <RecipeDifficulty recipe={selected} darkMode={darkMode} />
+                    <RecipeDifficulty recipe={selected} />
                   </div>
                   <div className="absolute bottom-12 left-0 w-full h-14 bg-gradient-to-t from-white/95 dark:from-neutral-900/95 to-transparent pointer-events-none transition-all duration-200" />
                 </div>
@@ -364,12 +362,12 @@ export default function HomePage({
               </div>
               {toolsExpanded ? (
                 <div className="p-4 pt-0 flex-1 flex flex-col">
-                  <CookingVideos recipe={selected} darkMode={darkMode} />
+                  <CookingVideos recipe={selected} />
                 </div>
               ) : (
                 <div className="relative flex-1 flex flex-col justify-between h-full">
                   <div className="p-4 pt-0 flex-1 overflow-hidden max-h-24">
-                    <CookingVideos recipe={selected} darkMode={darkMode} />
+                    <CookingVideos recipe={selected} />
                   </div>
                   <div className="absolute bottom-12 left-0 w-full h-14 bg-gradient-to-t from-white/95 dark:from-neutral-900/95 to-transparent pointer-events-none transition-all duration-200" />
                 </div>
@@ -396,7 +394,6 @@ export default function HomePage({
               (selected as { strMeal?: string; name?: string }).strMeal ??
               (selected as { strMeal?: string; name?: string }).name
             }
-            darkMode={darkMode}
           />
         </section>
       </div>

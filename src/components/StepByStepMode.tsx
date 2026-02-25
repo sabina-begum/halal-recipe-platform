@@ -1,3 +1,4 @@
+import { useDarkMode } from "@/contexts/DarkModeContext";
 import { useState } from "react";
 
 interface StepByStepModeProps {

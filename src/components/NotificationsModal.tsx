@@ -1,3 +1,4 @@
+import { useDarkMode } from "@/contexts/DarkModeContext";
 import React, { useEffect, useState } from "react";
 import {
   UtensilsCrossed,

@@ -1,3 +1,4 @@
+import { useDarkMode } from "@/contexts/DarkModeContext";
 interface LoadingSkeletonProps {
   darkMode: boolean;
 }

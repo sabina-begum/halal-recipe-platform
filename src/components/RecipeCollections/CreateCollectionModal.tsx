@@ -1,3 +1,4 @@
+import { useDarkMode } from "@/contexts/DarkModeContext";
 import React from "react";
 import type { NewCollection } from "../RecipeCollections";
 

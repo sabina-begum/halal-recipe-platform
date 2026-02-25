@@ -1,3 +1,4 @@
+import { useDarkMode } from "@/contexts/DarkModeContext";
 /**
  * Copyright (c) 2024 Sabina Begum. All rights reserved.
  *
@@ -118,7 +119,6 @@ function AIRecommendations({
           size="md"
           color="green"
           text="Analyzing your preferences..."
-          darkMode={darkMode}
         />
       </div>
     );
@@ -149,7 +149,6 @@ function AIRecommendations({
           onClick={generateRecommendations}
           variant="primary"
           size="sm"
-          darkMode={darkMode}
           className="mt-3"
         >
           Try Again
@@ -178,7 +177,6 @@ function AIRecommendations({
           onClick={generateRecommendations}
           variant="secondary"
           size="sm"
-          darkMode={darkMode}
           className="flex-shrink-0 whitespace-nowrap"
         >
           Refresh

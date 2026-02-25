@@ -1,3 +1,4 @@
+import { useDarkMode } from "@/contexts/DarkModeContext";
 /**
  * Copyright (c) 2024 Sabina Begum. All rights reserved.
  *
@@ -164,24 +165,20 @@ const ShoppingListGenerator = ({ darkMode }: ShoppingListGeneratorProps) => {
             setShoppingList([]);
             saveShoppingList([]);
           }}
-          darkMode={darkMode}
         />
         <ShoppingListForm
           newItem={newItem}
           setNewItem={setNewItem}
           onAdd={addCustomItem}
-          darkMode={darkMode}
         />
         <ShoppingListItems
           items={shoppingList}
           onRemoveItem={removeItem}
           onToggleChecked={toggleItemChecked}
-          darkMode={darkMode}
         />
         {shoppingList.length === 0 && (
           <EmptyState
             message="Your shopping list is empty. Add some items!"
-            darkMode={darkMode}
           />
         )}
       </div>

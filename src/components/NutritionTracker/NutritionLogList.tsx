@@ -1,3 +1,4 @@
+import { useDarkMode } from "@/contexts/DarkModeContext";
 import React from "react";
 import NutritionLogItem from "./NutritionLogItem";
 import type { Meal } from "../NutritionTracker";
@@ -21,7 +22,6 @@ const NutritionLogList: React.FC<NutritionLogListProps> = ({
           key={meal.id ?? idx}
           meal={meal}
           onRemove={() => onRemoveMeal(meal.id ?? idx)}
-          darkMode={darkMode}
         />
       ))}
     </div>

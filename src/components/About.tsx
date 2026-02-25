@@ -17,8 +17,10 @@ import AboutFeatures from "./AboutFeatures";
 import AboutTeam from "./AboutTeam";
 import AboutTech from "./AboutTech";
 import AboutContact from "./AboutContact";
+import { useDarkMode } from "@/contexts/DarkModeContext";
 
-const About = ({ darkMode }: { darkMode: boolean }) => {
+const About = () => {
+  const { darkMode } = useDarkMode()!;
   return (
     <div className="min-h-screen pt-20 pb-8 bg-main text-main">
       <Helmet>
@@ -114,13 +116,13 @@ const About = ({ darkMode }: { darkMode: boolean }) => {
         </div>
 
         {/* Features Section */}
-        <AboutFeatures darkMode={darkMode} />
+        <AboutFeatures />
 
         {/* Team Section */}
-        <AboutTeam darkMode={darkMode} />
+        <AboutTeam />
 
         {/* Technology Section */}
-        <AboutTech darkMode={darkMode} />
+        <AboutTech />
 
         {/* CTA Section */}
         <div className="text-center">
@@ -175,7 +177,7 @@ const About = ({ darkMode }: { darkMode: boolean }) => {
         </div>
 
         {/* Contact Section */}
-        <AboutContact darkMode={darkMode} />
+        <AboutContact />
       </div>
     </div>
   );

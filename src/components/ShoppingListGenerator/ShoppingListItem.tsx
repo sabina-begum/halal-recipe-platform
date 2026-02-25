@@ -1,3 +1,4 @@
+import { useDarkMode } from "@/contexts/DarkModeContext";
 interface ShoppingItem {
   ingredient: string;
   quantity: string;

@@ -1,3 +1,4 @@
+import { useDarkMode } from "@/contexts/DarkModeContext";
 interface ShoppingListHeaderProps {
   onAddItem: () => void;
   onClearList: () => void;

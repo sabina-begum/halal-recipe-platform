@@ -1,3 +1,4 @@
+import { useDarkMode } from "@/contexts/DarkModeContext";
 import { Link } from "react-router-dom";
 import { BookMarked, Search } from "lucide-react";
 

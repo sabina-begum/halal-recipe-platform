@@ -1,3 +1,4 @@
+import { useDarkMode } from "@/contexts/DarkModeContext";
 import { useEffect } from "react";
 import type { Recipe, NutritionData } from "../../types/global";
 import { cleanInstruction, isMeaningfulStep } from "../../utils/textFormatters";
@@ -60,12 +61,12 @@ export default function RecipeDetailsSection({
         <h1 className="text-3xl sm:text-4xl font-bold break-words tracking-tight">
           {selected.strMeal}
         </h1>
-        <FoodCategory category={selected.strCategory} darkMode={darkMode} />
+        <FoodCategory category={selected.strCategory} />
       </header>
 
       <section className={sectionClass} aria-label="Ingredients">
         <div className={sectionInner}>
-          <Ingredients recipe={selected} darkMode={darkMode} />
+          <Ingredients recipe={selected} />
         </div>
       </section>
 
@@ -73,7 +74,6 @@ export default function RecipeDetailsSection({
         <div className={sectionInner}>
           <Instructions
             instructions={selected.strInstructions}
-            darkMode={darkMode}
           />
         </div>
       </section>
@@ -89,7 +89,6 @@ export default function RecipeDetailsSection({
                     .filter(isMeaningfulStep)
                 : []
             }
-            darkMode={darkMode}
           />
         </div>
       </section>
@@ -98,7 +97,6 @@ export default function RecipeDetailsSection({
         <div className={sectionInner}>
           <Nutrition
             nutrition={nutritionData || {}}
-            darkMode={darkMode}
             loading={nutritionLoading}
           />
         </div>
@@ -106,9 +104,9 @@ export default function RecipeDetailsSection({
 
       <section className={sectionClass} aria-label="Difficulty and tools">
         <div className={`${sectionInner} space-y-8`}>
-          <RecipeDifficulty recipe={selected} darkMode={darkMode} />
-          <CookingVideos recipe={selected} darkMode={darkMode} />
-          <RecipeScaling recipe={selected} darkMode={darkMode} />
+          <RecipeDifficulty recipe={selected} />
+          <CookingVideos recipe={selected} />
+          <RecipeScaling recipe={selected} />
         </div>
       </section>
 
@@ -117,14 +115,13 @@ export default function RecipeDetailsSection({
           <RecipeRating
             recipeId={selected.idMeal}
             recipeName={selected.strMeal}
-            darkMode={darkMode}
           />
         </div>
       </section>
 
       <section className={sectionClass} aria-label="Leftover ideas">
         <div className={sectionInner}>
-          <LeftoverIntegration recipe={selected} darkMode={darkMode} />
+          <LeftoverIntegration recipe={selected} />
         </div>
       </section>
 
@@ -133,7 +130,6 @@ export default function RecipeDetailsSection({
           <RecipeReviews
             recipeId={selected.idMeal}
             recipeName={selected.strMeal}
-            darkMode={darkMode}
           />
         </div>
       </section>

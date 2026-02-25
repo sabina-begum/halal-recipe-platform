@@ -1,3 +1,4 @@
+import { useDarkMode } from "@/contexts/DarkModeContext";
 /**
  * Copyright (c) 2024 Sabina Begum. All rights reserved.
  *
@@ -740,12 +741,10 @@ const NutritionTracker: React.FC<NutritionTrackerProps> = ({ darkMode }) => {
           <NutritionLogList
             meals={meals}
             onRemoveMeal={removeMeal}
-            darkMode={darkMode}
           />
           {meals.length === 0 && (
             <EmptyState
               message="No meals logged for this day. Add a meal to get started!"
-              darkMode={darkMode}
             />
           )}
         </div>

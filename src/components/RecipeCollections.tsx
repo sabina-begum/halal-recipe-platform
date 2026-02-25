@@ -1,3 +1,4 @@
+import { useDarkMode } from "@/contexts/DarkModeContext";
 /**
  * Copyright (c) 2024 Sabina Begum. All rights reserved.
  *
@@ -442,13 +443,11 @@ const RecipeCollections: React.FC<RecipeCollectionsProps> = ({ darkMode }) => {
                       isSelected={selectedCollection?.id === collection.id}
                       onSelect={setSelectedCollection}
                       onDelete={deleteCollection}
-                      darkMode={darkMode}
                     />
                   ))}
                   {collections.length === 0 && (
                     <EmptyState
                       message="No collections yet. Create your first collection!"
-                      darkMode={darkMode}
                     />
                   )}
                 </div>
@@ -460,7 +459,6 @@ const RecipeCollections: React.FC<RecipeCollectionsProps> = ({ darkMode }) => {
                   selectedCollection={selectedCollection}
                   onAddRecipe={() => setShowAddRecipeModal(true)}
                   onRemoveRecipe={removeRecipeFromCollection}
-                  darkMode={darkMode}
                 />
               </div>
             </div>
@@ -473,7 +471,6 @@ const RecipeCollections: React.FC<RecipeCollectionsProps> = ({ darkMode }) => {
               collectionCategories={collectionCategories}
               onCreate={createCollection}
               onClose={() => setShowCreateModal(false)}
-              darkMode={darkMode}
             />
 
             <AddRecipeModal
@@ -483,7 +480,6 @@ const RecipeCollections: React.FC<RecipeCollectionsProps> = ({ darkMode }) => {
               availableRecipes={availableRecipes}
               onAddRecipe={addRecipeToCollection}
               onClose={() => setShowAddRecipeModal(false)}
-              darkMode={darkMode}
             />
           </div>
         </div>

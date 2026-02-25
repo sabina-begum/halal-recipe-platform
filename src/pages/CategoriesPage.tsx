@@ -1,7 +1,9 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { ingredientCategories } from "../features/recipes/data/ingredientCategories";
+import { useDarkMode } from "@/contexts/DarkModeContext";
 
-const CategoriesPage = ({ darkMode }: { darkMode: boolean }) => {
+const CategoriesPage = (): React.ReactNode => {
+  const { darkMode } = useDarkMode()!;
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
   return (
@@ -47,4 +49,3 @@ const CategoriesPage = ({ darkMode }: { darkMode: boolean }) => {
 };
 
 export default CategoriesPage;
-

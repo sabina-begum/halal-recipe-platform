@@ -1,3 +1,4 @@
+import { useDarkMode } from "@/contexts/DarkModeContext";
 import React, { useState } from "react";
 import { useAuth } from "../contexts/useAuth";
 import { addNotification } from "../utils/notificationUtils";

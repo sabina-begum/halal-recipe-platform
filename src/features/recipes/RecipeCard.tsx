@@ -1,3 +1,4 @@
+import { useDarkMode } from "@/contexts/DarkModeContext";
 import type { Recipe } from "../../types/global";
 
 interface RecipeCardProps {

@@ -1,3 +1,4 @@
+import { useDarkMode } from "@/contexts/DarkModeContext";
 /**
  * Copyright (c) 2024 Sabina Begum. All rights reserved.
  *
@@ -118,7 +119,7 @@ function AIFeaturesPage({ darkMode, onSearch }: AIFeaturesPageProps) {
                       : "bg-white border-gray-200"
                   }`}
                 >
-                  <VoiceSearch onSearch={onSearch} darkMode={darkMode} />
+                  <VoiceSearch onSearch={onSearch} />
                 </div>
               </div>
             </section>
@@ -161,7 +162,6 @@ function AIFeaturesPage({ darkMode, onSearch }: AIFeaturesPageProps) {
                   }`}
                 >
                   <AIRecommendations
-                    darkMode={darkMode}
                     userPreferences={{
                       favoriteCategories: selectedRecipe
                         ? [
@@ -214,7 +214,7 @@ function AIFeaturesPage({ darkMode, onSearch }: AIFeaturesPageProps) {
                       : "bg-white border-gray-200"
                   }`}
                 >
-                  <AISubstitutions ingredients={[]} darkMode={darkMode} />
+                  <AISubstitutions ingredients={[]} />
                 </div>
               </div>
             </section>
@@ -258,7 +258,6 @@ function AIFeaturesPage({ darkMode, onSearch }: AIFeaturesPageProps) {
                 >
                   <Nutrition
                     nutrition={nutritionData as NutritionData}
-                    darkMode={darkMode}
                     loading={false}
                   />
                 </div>

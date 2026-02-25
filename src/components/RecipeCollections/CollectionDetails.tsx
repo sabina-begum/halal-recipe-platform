@@ -1,3 +1,4 @@
+import { useDarkMode } from "@/contexts/DarkModeContext";
 import React from "react";
 import RecipeItem from "./RecipeItem";
 import type { Collection } from "../RecipeCollections";
@@ -57,7 +58,6 @@ const CollectionDetails: React.FC<CollectionDetailsProps> = ({
               key={`${recipe.id}-${index}`}
               recipe={recipe}
               onRemove={onRemoveRecipe}
-              darkMode={darkMode}
             />
           ))}
         </div>

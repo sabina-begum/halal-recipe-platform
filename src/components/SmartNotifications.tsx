@@ -11,7 +11,7 @@
  * Educational use only - Commercial use prohibited.
  */
 
-import { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import {
   UtensilsCrossed,
   Clock,
@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import { useAuth } from "../contexts/useAuth";
 import { countUniqueBy } from "../utils/arrayUtils";
+import { useDarkMode } from "@/contexts/DarkModeContext";
 
 // Add Notification type
 interface Notification {
@@ -41,7 +42,8 @@ interface AuthUser {
   isDemoUser: boolean;
 }
 
-const SmartNotifications = ({ darkMode }: { darkMode: boolean }) => {
+const SmartNotifications = (): React.ReactNode => {
+  const { darkMode } = useDarkMode()!;
   const { currentUser, isDemoUser } = useAuth() as AuthUser;
   const [notifications, setNotifications] = useState<Notification[]>([]);
   const [settings, setSettings] = useState<{ [key: string]: boolean }>({
@@ -58,7 +60,7 @@ const SmartNotifications = ({ darkMode }: { darkMode: boolean }) => {
     if (!currentUser) return;
     try {
       const savedNotifications = JSON.parse(
-        localStorage.getItem(`notifications_${currentUser.uid}`) || "[]"
+        localStorage.getItem(`notifications_${currentUser.uid}`) || "[]",
       );
       setNotifications(savedNotifications);
     } catch (error) {
@@ -76,7 +78,7 @@ const SmartNotifications = ({ darkMode }: { darkMode: boolean }) => {
       } else {
         const savedSettings = JSON.parse(
           localStorage.getItem(`notification_settings_${currentUser.uid}`) ||
-            "{}"
+            "{}",
         );
         setSettings({ ...settings, ...savedSettings });
       }
@@ -101,7 +103,7 @@ const SmartNotifications = ({ darkMode }: { darkMode: boolean }) => {
       } else {
         localStorage.setItem(
           `notification_settings_${currentUser.uid}`,
-          JSON.stringify(newSettings)
+          JSON.stringify(newSettings),
         );
       }
     } catch (error) {
@@ -112,13 +114,13 @@ const SmartNotifications = ({ darkMode }: { darkMode: boolean }) => {
   const markAsRead = (notificationId: number) => {
     if (!currentUser) return;
     const updated = notifications.map((n: Notification) =>
-      n.id === notificationId ? { ...n, read: true } : n
+      n.id === notificationId ? { ...n, read: true } : n,
     );
     setNotifications(updated);
     if (!isDemoUser) {
       localStorage.setItem(
         `notifications_${currentUser.uid}`,
-        JSON.stringify(updated)
+        JSON.stringify(updated),
       );
     }
   };
@@ -126,13 +128,13 @@ const SmartNotifications = ({ darkMode }: { darkMode: boolean }) => {
   const deleteNotification = (notificationId: number) => {
     if (!currentUser) return;
     const updated = notifications.filter(
-      (n: Notification) => n.id !== notificationId
+      (n: Notification) => n.id !== notificationId,
     );
     setNotifications(updated);
     if (!isDemoUser) {
       localStorage.setItem(
         `notifications_${currentUser.uid}`,
-        JSON.stringify(updated)
+        JSON.stringify(updated),
       );
     }
   };
@@ -294,7 +296,7 @@ const SmartNotifications = ({ darkMode }: { darkMode: boolean }) => {
                       <div className="flex items-center space-x-2 mb-1">
                         <h4
                           className={`font-medium ${getPriorityTextColor(
-                            notification.priority
+                            notification.priority,
                           )}`}
                         >
                           {notification.title}
@@ -355,7 +357,7 @@ const SmartNotifications = ({ darkMode }: { darkMode: boolean }) => {
                 <span className="font-medium">High Priority:</span>{" "}
                 {
                   notifications.filter(
-                    (n: Notification) => n.priority === "high"
+                    (n: Notification) => n.priority === "high",
                   ).length
                 }
               </div>
@@ -375,13 +377,13 @@ const SmartNotifications = ({ darkMode }: { darkMode: boolean }) => {
                 (n: Notification) => ({
                   ...n,
                   read: true,
-                })
+                }),
               );
               setNotifications(updatedNotifications);
               if (!isDemoUser) {
                 localStorage.setItem(
                   `notifications_${currentUser.uid}`,
-                  JSON.stringify(updatedNotifications)
+                  JSON.stringify(updatedNotifications),
                 );
               }
             }}
@@ -399,7 +401,7 @@ const SmartNotifications = ({ darkMode }: { darkMode: boolean }) => {
               if (!isDemoUser) {
                 localStorage.setItem(
                   `notifications_${currentUser.uid}`,
-                  JSON.stringify([])
+                  JSON.stringify([]),
                 );
               }
             }}
