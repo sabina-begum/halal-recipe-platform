@@ -9,7 +9,6 @@ interface AddRecipeModalProps {
   availableRecipes: Recipe[];
   onAddRecipe: (r: Recipe) => void;
   onClose: () => void;
-  darkMode: boolean;
 }
 
 const AddRecipeModal: React.FC<AddRecipeModalProps> = ({
@@ -19,12 +18,12 @@ const AddRecipeModal: React.FC<AddRecipeModalProps> = ({
   availableRecipes,
   onAddRecipe,
   onClose,
-  darkMode,
 }) => {
+  const { darkMode } = useDarkMode()!;
   if (!showModal) return null;
 
   const filteredRecipes = availableRecipes.filter((recipe) =>
-    recipe.name.toLowerCase().includes(searchTerm.toLowerCase())
+    recipe.name.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
   return (
@@ -103,4 +102,3 @@ const AddRecipeModal: React.FC<AddRecipeModalProps> = ({
 };
 
 export default AddRecipeModal;
-

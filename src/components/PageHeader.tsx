@@ -28,7 +28,7 @@ export default function PageHeader({ isAuthPage }: PageHeaderProps) {
           Find your next favorite dish with our recipe collection
         </p>
       </div>
-      <FeatureNavbar darkMode={darkMode} />
+      <FeatureNavbar />
     </>
   );
 }

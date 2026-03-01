@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import Favorites from "../Favorites";
 import { AuthContext } from "../../contexts/AuthContextDef";
+import { DarkModeProvider } from "../../contexts/DarkModeContext";
 import { MemoryRouter } from "react-router-dom";
 import { jest, describe, beforeEach, it } from "@jest/globals";
 import type { AuthContextType } from "../../types/global";
@@ -28,9 +29,11 @@ describe("Favorites", () => {
   it("renders the header and empty state when no favorites", async () => {
     render(
       <AuthContext.Provider value={mockAuth as AuthContextType}>
-        <MemoryRouter>
-          <Favorites darkMode={false} />
-        </MemoryRouter>
+        <DarkModeProvider>
+          <MemoryRouter>
+            <Favorites />
+          </MemoryRouter>
+        </DarkModeProvider>
       </AuthContext.Provider>,
     );
     await screen.findByText(/My Favorites/i);

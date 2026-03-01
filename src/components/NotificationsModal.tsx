@@ -24,7 +24,6 @@ export interface Notification {
 interface NotificationsModalProps {
   open: boolean;
   onClose: () => void;
-  darkMode: boolean;
 }
 
 const iconClass = "w-6 h-6 shrink-0";
@@ -51,8 +50,8 @@ const getNotificationIcon = (type: string): React.ReactNode => {
 const NotificationsModal: React.FC<NotificationsModalProps> = ({
   open,
   onClose,
-  darkMode,
 }) => {
+  const { darkMode } = useDarkMode()!;
   const { currentUser } = useAuth();
   const [notifications, setNotifications] = useState<Notification[]>([]);
 

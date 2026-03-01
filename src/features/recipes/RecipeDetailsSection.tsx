@@ -17,16 +17,15 @@ import StepByStepMode from "../../components/StepByStepMode";
 interface RecipeDetailsSectionProps {
   selected: Recipe | null;
   nutritionData: NutritionData | null;
-  darkMode: boolean;
   nutritionLoading: boolean;
 }
 
 export default function RecipeDetailsSection({
   selected,
   nutritionData,
-  darkMode,
   nutritionLoading,
 }: RecipeDetailsSectionProps) {
+  const { darkMode } = useDarkMode()!;
   useEffect(() => {
     if (selected) window.scrollTo({ top: 0, behavior: "smooth" });
   }, [selected?.idMeal]);

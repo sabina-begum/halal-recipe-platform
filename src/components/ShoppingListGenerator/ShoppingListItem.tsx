@@ -13,15 +13,14 @@ interface ShoppingListItemProps {
   item: ShoppingItem;
   onRemove: () => void;
   onToggle: () => void;
-  darkMode: boolean;
 }
 
 export default function ShoppingListItem({
   item,
   onRemove,
   onToggle,
-  darkMode,
 }: ShoppingListItemProps) {
+  const { darkMode } = useDarkMode()!;
   return (
     <div
       className={`flex items-center justify-between p-3 rounded-lg border transition-opacity ${

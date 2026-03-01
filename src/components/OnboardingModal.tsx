@@ -5,10 +5,10 @@ import { useState } from "react";
 interface OnboardingModalProps {
   open: boolean;
   onClose: () => void;
-  darkMode: boolean;
 }
 
-const OnboardingModal = ({ open, onClose, darkMode }: OnboardingModalProps) => {
+const OnboardingModal = ({ open, onClose }: OnboardingModalProps) => {
+  const { darkMode } = useDarkMode()!;
   const [step, setStep] = useState(0);
   const steps = [
     {

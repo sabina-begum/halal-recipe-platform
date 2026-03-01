@@ -16,10 +16,10 @@ import type { Recipe } from "../types/global";
 
 interface RecipeDifficultyProps {
   recipe: Recipe;
-  darkMode: boolean;
 }
 
-const RecipeDifficulty = ({ recipe, darkMode }: RecipeDifficultyProps) => {
+const RecipeDifficulty = ({ recipe }: RecipeDifficultyProps) => {
+  const { darkMode } = useDarkMode()!;
   if (!recipe) return null;
 
   // Calculate difficulty based on recipe complexity

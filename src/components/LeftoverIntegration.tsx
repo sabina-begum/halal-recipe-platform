@@ -34,13 +34,12 @@ export interface LeftoverRecipeSuggestion {
 
 interface LeftoverIntegrationProps {
   recipe: unknown;
-  darkMode: boolean;
 }
 
 const LeftoverIntegration: React.FC<LeftoverIntegrationProps> = ({
   recipe,
-  darkMode,
 }) => {
+  const { darkMode } = useDarkMode()!;
   const [leftoverRecipes, setLeftoverRecipes] = useState<
     LeftoverRecipeSuggestion[]
   >([]);

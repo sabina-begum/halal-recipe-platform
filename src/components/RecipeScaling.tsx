@@ -26,10 +26,10 @@ interface Ingredient {
 
 interface RecipeScalingProps {
   recipe: unknown;
-  darkMode: boolean;
 }
 
-const RecipeScaling = ({ recipe, darkMode }: RecipeScalingProps) => {
+const RecipeScaling = ({ recipe }: RecipeScalingProps) => {
+  const { darkMode } = useDarkMode()!;
   const [servings, setServings] = useState<number>(4);
   const [originalServings, setOriginalServings] = useState<number>(4);
   const [scaledIngredients, setScaledIngredients] = useState<Ingredient[]>([]);

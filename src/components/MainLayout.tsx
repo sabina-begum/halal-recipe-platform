@@ -5,7 +5,7 @@ import PerformanceMonitor from "./PerformanceMonitor";
 import PremiumFeatures from "./PremiumFeatures";
 import SearchBar from "./SearchBar";
 import { useModal } from "../contexts/ModalContext";
-import { useDarkMode } from "../contexts/DarkModeContext";
+import { useDarkMode } from "@/contexts/DarkModeContext";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import FeatureNavbar from "./navbar/FeatureNavbar";
@@ -18,8 +18,6 @@ interface HeroHeaderProps {
 }
 
 function HeroHeader({ handleSearch }: HeroHeaderProps) {
-  const darkModeContext = useDarkMode();
-  const darkMode = darkModeContext?.darkMode || false;
   const [loading, setLoading] = React.useState(false);
   return (
     <div className="w-full bg-gradient-to-b from-orange-50 to-amber-50 dark:from-neutral-900 dark:to-neutral-800 py-8 md:py-12 shadow-sm">
@@ -37,7 +35,6 @@ function HeroHeader({ handleSearch }: HeroHeaderProps) {
                 await handleSearch(query);
                 setLoading(false);
               }}
-              darkMode={darkMode}
               loading={loading}
             />
           </div>
@@ -94,15 +91,15 @@ export default function MainLayout({
             ? "pt-16 sm:pt-20 lg:pt-24"
             : "pt-28 sm:pt-32 lg:pt-36"
           : darkMode
-          ? "pt-16"
-          : "pt-16"
+            ? "pt-16"
+            : "pt-16"
       }`}
     >
       <Navbar handleSearch={handleSearch} />
       {shouldShowHeader && (
         <>
           <HeroHeader handleSearch={handleSearch} />
-          <FeatureNavbar darkMode={darkMode} />
+          <FeatureNavbar />
         </>
       )}
       <main className="flex-grow flex flex-col justify-center">
@@ -112,26 +109,21 @@ export default function MainLayout({
       </main>
       <Footer />
       <Watermark />
-      <PerformanceMonitor darkMode={darkMode} />
+      <PerformanceMonitor />
       {showOnboarding && (
         <OnboardingModal
           open={showOnboarding}
           onClose={handleCloseOnboarding}
-          darkMode={darkMode}
         />
       )}
       {modal === "premium" && !isPremium && (
-        <PremiumFeatures darkMode={darkMode} onClose={closeModal} />
+        <PremiumFeatures onClose={closeModal} />
       )}
       {modal === "quick-add" && (
-        <QuickAddModal open={true} onClose={closeModal} darkMode={darkMode} />
+        <QuickAddModal open={true} onClose={closeModal} />
       )}
       {modal === "notifications" && (
-        <NotificationsModal
-          open={true}
-          onClose={closeModal}
-          darkMode={darkMode}
-        />
+        <NotificationsModal open={true} onClose={closeModal} />
       )}
     </div>
   );

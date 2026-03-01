@@ -55,11 +55,8 @@ export interface NewMeal {
   fat: string;
 }
 
-interface NutritionTrackerProps {
-  darkMode: boolean;
-}
-
-const NutritionTracker: React.FC<NutritionTrackerProps> = ({ darkMode }) => {
+const NutritionTracker: React.FC = () => {
+  const { darkMode } = useDarkMode()!;
   const { currentUser, isDemoUser } = useAuth();
   const [nutritionGoals, setNutritionGoals] = useState<NutritionGoals>({
     calories: 2000,
@@ -738,14 +735,9 @@ const NutritionTracker: React.FC<NutritionTrackerProps> = ({ darkMode }) => {
             />
           )}
 
-          <NutritionLogList
-            meals={meals}
-            onRemoveMeal={removeMeal}
-          />
+          <NutritionLogList meals={meals} onRemoveMeal={removeMeal} />
           {meals.length === 0 && (
-            <EmptyState
-              message="No meals logged for this day. Add a meal to get started!"
-            />
+            <EmptyState message="No meals logged for this day. Add a meal to get started!" />
           )}
         </div>
 

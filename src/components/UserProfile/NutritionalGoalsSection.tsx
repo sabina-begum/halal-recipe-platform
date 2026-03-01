@@ -13,15 +13,14 @@ interface NutritionalGoalsSectionProps {
     fatGoal: number;
   }) => void;
   isEditing: boolean;
-  darkMode: boolean;
 }
 
 export default function NutritionalGoalsSection({
   profile,
   setProfile,
   isEditing,
-  darkMode,
 }: NutritionalGoalsSectionProps) {
+  const { darkMode } = useDarkMode()!;
   return (
     <div>
       <h3 className="text-lg font-semibold mb-3">Nutritional Goals (Daily)</h3>

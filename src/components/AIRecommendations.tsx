@@ -32,14 +32,13 @@ interface RecipeRecommendation {
   [key: string]: unknown;
 }
 interface AIRecommendationsProps {
-  darkMode: boolean;
   userPreferences?: UserPreferences;
 }
 
 function AIRecommendations({
-  darkMode,
-  userPreferences = {},
+  userPreferences = {} as UserPreferences,
 }: AIRecommendationsProps) {
+  const { darkMode } = useDarkMode()!;
   const [recommendations, setRecommendations] = useState<
     RecipeRecommendation[]
   >([]);

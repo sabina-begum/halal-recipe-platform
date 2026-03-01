@@ -14,10 +14,10 @@ import { useDarkMode } from "@/contexts/DarkModeContext";
 
 interface FoodCategoryProps {
   category?: string;
-  darkMode: boolean;
 }
 
-function FoodCategory({ category = "N/A", darkMode }: FoodCategoryProps) {
+function FoodCategory({ category = "N/A" }: FoodCategoryProps) {
+  const { darkMode } = useDarkMode()!;
   if (!category) return null;
 
   return (

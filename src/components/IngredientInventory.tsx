@@ -11,13 +11,8 @@ export interface InventoryItem {
   category: string;
 }
 
-interface IngredientInventoryProps {
-  darkMode: boolean;
-}
-
-const IngredientInventory: React.FC<IngredientInventoryProps> = ({
-  darkMode,
-}) => {
+const IngredientInventory: React.FC = () => {
+  const { darkMode } = useDarkMode()!;
   const { currentUser } = useAuth();
   const storageKey = `ingredientInventory_${currentUser?.uid ?? "anonymous"}`;
 

@@ -2,13 +2,8 @@ import { useDarkMode } from "@/contexts/DarkModeContext";
 import { Link } from "react-router-dom";
 import { BookMarked, Search } from "lucide-react";
 
-interface QuickAccessSectionProps {
-  darkMode: boolean;
-}
-
-export default function QuickAccessSection({
-  darkMode,
-}: QuickAccessSectionProps) {
+export default function QuickAccessSection() {
+  const { darkMode } = useDarkMode()!;
   return (
     <div
       className={`compact-card compact-section bg-gradient-to-br from-orange-50 to-amber-50 dark:from-neutral-900 dark:to-neutral-800 rounded-lg shadow-sm p-6 ${

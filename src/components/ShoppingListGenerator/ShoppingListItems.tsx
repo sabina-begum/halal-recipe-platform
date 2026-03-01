@@ -1,4 +1,3 @@
-import { useDarkMode } from "@/contexts/DarkModeContext";
 import ShoppingListItem from "./ShoppingListItem";
 
 interface ShoppingItem {
@@ -15,14 +14,12 @@ interface ShoppingListItemsProps {
   items: ShoppingItem[];
   onRemoveItem: (index: number) => void;
   onToggleChecked: (index: number) => void;
-  darkMode: boolean;
 }
 
 export default function ShoppingListItems({
   items,
   onRemoveItem,
   onToggleChecked,
-  darkMode,
 }: ShoppingListItemsProps) {
   return (
     <div className="space-y-2">

@@ -46,7 +46,6 @@ function App() {
   const [selected, setSelected] = useState<Recipe | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [hasUserSearched, setHasUserSearched] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
   const location = useLocation();
 
@@ -71,7 +70,6 @@ function App() {
       setLoading(true);
       setError(null);
       setNutritionData(null);
-      setHasUserSearched(true);
 
       try {
         const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${encodeURIComponent(
@@ -192,7 +190,6 @@ function App() {
                       loading={loading}
                       error={error}
                       nutritionLoading={nutritionLoading}
-                      hasUserSearched={hasUserSearched}
                     />
                   </MainLayout>
                   {toast && (

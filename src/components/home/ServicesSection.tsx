@@ -1,11 +1,8 @@
 import { useDarkMode } from "@/contexts/DarkModeContext";
 import { Link } from "react-router-dom";
 
-interface ServicesSectionProps {
-  darkMode: boolean;
-}
-
-export default function ServicesSection({ darkMode }: ServicesSectionProps) {
+export default function ServicesSection() {
+  const { darkMode } = useDarkMode()!;
   return (
     <div
       className={`compact-card bg-gradient-to-br from-orange-50 to-amber-50 dark:from-neutral-900 dark:to-neutral-800 rounded-lg shadow-sm p-6 ${

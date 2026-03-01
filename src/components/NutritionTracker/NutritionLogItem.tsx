@@ -5,14 +5,13 @@ import { Meal } from "../NutritionTracker";
 interface NutritionLogItemProps {
   meal: Meal;
   onRemove: () => void;
-  darkMode: boolean;
 }
 
 const NutritionLogItem: React.FC<NutritionLogItemProps> = ({
   meal,
   onRemove,
-  darkMode,
 }) => {
+  const { darkMode } = useDarkMode()!;
   return (
     <div
       className={`flex justify-between items-center p-3 rounded-lg border mb-2 ${

@@ -9,7 +9,6 @@ interface CreateCollectionModalProps {
   collectionCategories: string[];
   onCreate: () => void;
   onClose: () => void;
-  darkMode: boolean;
 }
 
 const CreateCollectionModal: React.FC<CreateCollectionModalProps> = ({
@@ -19,8 +18,8 @@ const CreateCollectionModal: React.FC<CreateCollectionModalProps> = ({
   collectionCategories,
   onCreate,
   onClose,
-  darkMode,
 }) => {
+  const { darkMode } = useDarkMode()!;
   if (!showModal) return null;
 
   return (
@@ -118,4 +117,3 @@ const CreateCollectionModal: React.FC<CreateCollectionModalProps> = ({
 };
 
 export default CreateCollectionModal;
-

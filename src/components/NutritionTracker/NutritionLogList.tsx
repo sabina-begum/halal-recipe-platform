@@ -1,4 +1,3 @@
-import { useDarkMode } from "@/contexts/DarkModeContext";
 import React from "react";
 import NutritionLogItem from "./NutritionLogItem";
 import type { Meal } from "../NutritionTracker";
@@ -6,13 +5,11 @@ import type { Meal } from "../NutritionTracker";
 interface NutritionLogListProps {
   meals: Meal[];
   onRemoveMeal: (mealId: number) => void;
-  darkMode: boolean;
 }
 
 const NutritionLogList: React.FC<NutritionLogListProps> = ({
   meals,
   onRemoveMeal,
-  darkMode,
 }) => {
   if (!meals.length) return null;
   return (
@@ -29,4 +26,3 @@ const NutritionLogList: React.FC<NutritionLogListProps> = ({
 };
 
 export default NutritionLogList;
-

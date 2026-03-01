@@ -3,10 +3,10 @@ import React from "react";
 
 interface EmptyStateProps {
   message: string;
-  darkMode: boolean;
 }
 
-const EmptyState: React.FC<EmptyStateProps> = ({ message, darkMode }) => {
+const EmptyState: React.FC<EmptyStateProps> = ({ message }) => {
+  const { darkMode } = useDarkMode()!;
   return (
     <div
       className={`text-center py-8 flex items-center justify-center h-full ${
@@ -19,4 +19,3 @@ const EmptyState: React.FC<EmptyStateProps> = ({ message, darkMode }) => {
 };
 
 export default EmptyState;
-

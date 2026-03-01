@@ -28,7 +28,6 @@ import { db } from "../firebase/config";
 interface RecipeRatingProps {
   recipeId: unknown;
   recipeName: unknown;
-  darkMode: boolean;
 }
 
 interface Review {
@@ -50,8 +49,8 @@ interface UserRating {
 const RecipeRating = ({
   recipeId,
   recipeName,
-  darkMode,
 }: RecipeRatingProps) => {
+  const { darkMode } = useDarkMode()!;
   const { currentUser, isDemoUser } = useAuth();
   const ratingsKey = `ratings_recipe_${recipeId}`;
   const [rating, setRating] = useState<number>(0);

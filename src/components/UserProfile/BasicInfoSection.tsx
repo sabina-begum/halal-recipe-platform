@@ -3,15 +3,14 @@ interface BasicInfoSectionProps {
   profile: { displayName: string };
   setProfile: (profile: { displayName: string }) => void;
   isEditing: boolean;
-  darkMode: boolean;
 }
 
 export default function BasicInfoSection({
   profile,
   setProfile,
   isEditing,
-  darkMode,
 }: BasicInfoSectionProps) {
+  const { darkMode } = useDarkMode()!;
   return (
     <div>
       <h3 className="text-lg font-semibold mb-3">Basic Information</h3>

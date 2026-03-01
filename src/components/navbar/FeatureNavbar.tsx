@@ -42,11 +42,8 @@ import {
 
 const FEATURE_NAV_STORAGE = "culinaria_feature_nav_section";
 
-interface FeatureNavbarProps {
-  darkMode: boolean;
-}
-
-function FeatureNavbar({ darkMode }: FeatureNavbarProps) {
+function FeatureNavbar() {
+  const { darkMode } = useDarkMode()!;
   const [activeSection, setActiveSection] = useState(() => {
     try {
       return localStorage.getItem(FEATURE_NAV_STORAGE) || "discover";

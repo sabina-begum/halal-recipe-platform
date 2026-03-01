@@ -29,7 +29,6 @@ import { formatDate } from "../../utils/dateUtils";
 interface RecipeReviewsProps {
   recipeId: string;
   recipeName?: string;
-  darkMode: boolean;
 }
 
 interface UserReview {
@@ -44,8 +43,8 @@ interface UserReview {
 const RecipeReviews = ({
   recipeId,
   recipeName: recipeNameProp,
-  darkMode,
 }: RecipeReviewsProps) => {
+  const { darkMode } = useDarkMode()!;
   const { currentUser } = useAuth() as { currentUser: User | null };
   const [reviews, setReviews] = useState<Review[]>([]);
   const [userReview, setUserReview] = useState<UserReview>({

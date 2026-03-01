@@ -9,14 +9,10 @@ interface RecipeItemProps {
     [key: string]: unknown;
   };
   onRemove: (id: string) => void;
-  darkMode: boolean;
 }
 
-const RecipeItem: React.FC<RecipeItemProps> = ({
-  recipe,
-  onRemove,
-  darkMode,
-}) => {
+const RecipeItem: React.FC<RecipeItemProps> = ({ recipe, onRemove }) => {
+  const { darkMode } = useDarkMode()!;
   return (
     <div
       className={`p-4 rounded-lg border ${
@@ -51,4 +47,3 @@ const RecipeItem: React.FC<RecipeItemProps> = ({
 };
 
 export default RecipeItem;
-

@@ -6,7 +6,6 @@ interface RecipeCardProps {
   isFavorite: boolean;
   favoriteLoading: boolean;
   toggleFavorite: () => void;
-  darkMode: boolean;
   generateFoodDescription: string;
 }
 
@@ -15,9 +14,9 @@ export default function RecipeCard({
   isFavorite,
   favoriteLoading,
   toggleFavorite,
-  darkMode,
   generateFoodDescription,
 }: RecipeCardProps) {
+  const { darkMode } = useDarkMode()!;
   if (!selected) return null;
   return (
     <div

@@ -48,11 +48,8 @@ export interface NewCollection {
   coverImage: string;
 }
 
-interface RecipeCollectionsProps {
-  darkMode: boolean;
-}
-
-const RecipeCollections: React.FC<RecipeCollectionsProps> = ({ darkMode }) => {
+const RecipeCollections: React.FC = () => {
+  const { darkMode } = useDarkMode()!;
   const { currentUser, isDemoUser } = useAuth();
   const [collections, setCollections] = useState<Collection[]>([]);
   const [selectedCollection, setSelectedCollection] =
@@ -446,9 +443,7 @@ const RecipeCollections: React.FC<RecipeCollectionsProps> = ({ darkMode }) => {
                     />
                   ))}
                   {collections.length === 0 && (
-                    <EmptyState
-                      message="No collections yet. Create your first collection!"
-                    />
+                    <EmptyState message="No collections yet. Create your first collection!" />
                   )}
                 </div>
               </div>

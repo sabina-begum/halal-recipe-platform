@@ -12,7 +12,7 @@ import { useDarkMode } from "@/contexts/DarkModeContext";
  * Educational use only - Commercial use prohibited.
  */
 
-import { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { Clock, UtensilsCrossed } from "lucide-react";
 import { featuredRecipes } from "../features/recipes/data/recipes";
@@ -36,21 +36,18 @@ interface SeasonData {
   recipes: Recipe[];
 }
 
-interface SeasonalIngredientsProps {
-  darkMode: boolean;
-}
-
-const SeasonalIngredients = ({ darkMode }: SeasonalIngredientsProps) => {
+const SeasonalIngredients: React.FC = () => {
+  const { darkMode } = useDarkMode()!;
   const [currentSeason, setCurrentSeason] = useState<string>("");
   const [seasonalIngredients, setSeasonalIngredients] = useState<Ingredient[]>(
-    []
+    [],
   );
   const [selectedSeason, setSelectedSeason] = useState<string>("");
 
   // Real recipes from featuredRecipes filtered by selected season
   const seasonalRecipes = useMemo(
     () => featuredRecipes.filter((r) => r.seasons?.includes(selectedSeason)),
-    [selectedSeason]
+    [selectedSeason],
   );
 
   // Determine current season
@@ -378,7 +375,7 @@ const SeasonalIngredients = ({ darkMode }: SeasonalIngredientsProps) => {
         ],
       },
     }),
-    []
+    [],
   );
 
   useEffect(() => {
@@ -465,11 +462,11 @@ const SeasonalIngredients = ({ darkMode }: SeasonalIngredientsProps) => {
                 className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
                   selectedSeason === season
                     ? `${getSeasonBgColor(season)} ${getSeasonColor(
-                        season
+                        season,
                       )} border-2 border-current`
                     : darkMode
-                    ? "bg-indigo-700/50 text-indigo-200 border border-indigo-500"
-                    : "bg-indigo-100 text-indigo-800 border border-indigo-300"
+                      ? "bg-indigo-700/50 text-indigo-200 border border-indigo-500"
+                      : "bg-indigo-100 text-indigo-800 border border-indigo-300"
                 }`}
               >
                 {season}
@@ -539,7 +536,7 @@ const SeasonalIngredients = ({ darkMode }: SeasonalIngredientsProps) => {
                     <h5 className="font-medium text-sm">{recipe.name}</h5>
                     <span
                       className={`px-2 py-1 rounded-full text-xs font-medium ${getSeasonBgColor(
-                        selectedSeason
+                        selectedSeason,
                       )} ${getSeasonColor(selectedSeason)}`}
                     >
                       {recipe.difficulty ?? "—"}
@@ -591,7 +588,7 @@ const SeasonalIngredients = ({ darkMode }: SeasonalIngredientsProps) => {
         {currentSeason && (
           <div
             className={`mt-4 p-3 rounded-lg ${getSeasonBgColor(
-              currentSeason
+              currentSeason,
             )} border border-current`}
           >
             <p className={`text-sm ${getSeasonColor(currentSeason)}`}>

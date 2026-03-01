@@ -17,10 +17,10 @@ import Button from "./ui/Button";
 
 interface VoiceSearchProps {
   onSearch: (searchTerm: string) => void;
-  darkMode: boolean;
 }
 
-function VoiceSearch({ onSearch, darkMode }: VoiceSearchProps) {
+function VoiceSearch({ onSearch }: VoiceSearchProps) {
+  const { darkMode } = useDarkMode()!;
   const [isListening, setIsListening] = useState(false);
   const recognitionRef = useRef<SpeechRecognition | null>(null);
 

@@ -28,11 +28,8 @@ interface Meal {
   strMealThumb: string;
 }
 
-interface AZRecipesPageProps {
-  darkMode: boolean;
-}
-
-export default function AZRecipesPage({ darkMode }: AZRecipesPageProps) {
+export default function AZRecipesPage() {
+  const { darkMode } = useDarkMode()!;
   const [letter, setLetter] = useState("a");
   const [meals, setMeals] = useState<Meal[]>([]);
   const [loading, setLoading] = useState(false);
@@ -92,11 +89,7 @@ export default function AZRecipesPage({ darkMode }: AZRecipesPageProps) {
 
       {/* Loading State */}
       {loading && (
-        <LoadingSpinner
-          size="lg"
-          color="blue"
-          text="Loading recipes..."
-        />
+        <LoadingSpinner size="lg" color="blue" text="Loading recipes..." />
       )}
 
       {/* Error State */}

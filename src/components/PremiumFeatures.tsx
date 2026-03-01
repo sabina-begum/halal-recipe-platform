@@ -29,7 +29,6 @@ import {
 } from "lucide-react";
 
 interface PremiumFeaturesProps {
-  darkMode: boolean;
   onClose: () => void;
 }
 interface Plan {
@@ -47,9 +46,9 @@ interface Feature {
 }
 
 const PremiumFeatures: React.FC<PremiumFeaturesProps> = ({
-  darkMode,
   onClose,
 }) => {
+  const { darkMode } = useDarkMode()!;
   const { currentUser } = useAuth();
   const [selectedPlan, setSelectedPlan] = useState<string>("monthly");
   const [loading, setLoading] = useState<boolean>(false);

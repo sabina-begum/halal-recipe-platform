@@ -2,14 +2,13 @@ import { useDarkMode } from "@/contexts/DarkModeContext";
 interface ProfileHeaderProps {
   isEditing: boolean;
   onToggleEdit: () => void;
-  darkMode: boolean;
 }
 
 export default function ProfileHeader({
   isEditing,
   onToggleEdit,
-  darkMode,
 }: ProfileHeaderProps) {
+  const { darkMode } = useDarkMode()!;
   return (
     <div className="flex justify-between items-center mb-6">
       <h2 className="text-2xl font-bold bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent">
@@ -28,4 +27,3 @@ export default function ProfileHeader({
     </div>
   );
 }
-

@@ -17,15 +17,14 @@ interface ShoppingListFormProps {
     }>
   >;
   onAdd: () => void;
-  darkMode: boolean;
 }
 
 export default function ShoppingListForm({
   newItem,
   setNewItem,
   onAdd,
-  darkMode,
 }: ShoppingListFormProps) {
+  const { darkMode } = useDarkMode()!;
   return (
     <form
       onSubmit={(e) => {
@@ -60,4 +59,3 @@ export default function ShoppingListForm({
     </form>
   );
 }
-

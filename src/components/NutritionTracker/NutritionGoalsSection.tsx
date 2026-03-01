@@ -1,11 +1,9 @@
-import { useDarkMode } from "@/contexts/DarkModeContext";
 import React from "react";
 import type { NutritionGoals } from "../NutritionTracker";
 
 interface NutritionGoalsSectionProps {
   nutritionGoals: NutritionGoals;
   onRecalculate: () => void;
-  darkMode: boolean;
 }
 
 const NutritionGoalsSection: React.FC<NutritionGoalsSectionProps> = ({
@@ -58,4 +56,3 @@ const NutritionGoalsSection: React.FC<NutritionGoalsSectionProps> = ({
 };
 
 export default NutritionGoalsSection;
-

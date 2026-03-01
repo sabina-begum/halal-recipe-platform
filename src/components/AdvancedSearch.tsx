@@ -12,7 +12,7 @@ import { useDarkMode } from "@/contexts/DarkModeContext";
  * Educational use only - Commercial use prohibited.
  */
 
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Search,
   Check,
@@ -26,7 +26,6 @@ import {
 
 interface AdvancedSearchProps {
   onSearch: (params: SearchParams) => void;
-  darkMode: boolean;
 }
 
 interface SearchParams {
@@ -40,10 +39,8 @@ interface SearchParams {
   dietaryRestrictions: string[];
 }
 
-const AdvancedSearch: React.FC<AdvancedSearchProps> = ({
-  onSearch,
-  darkMode,
-}) => {
+const AdvancedSearch = ({ onSearch }: AdvancedSearchProps) => {
+  const { darkMode } = useDarkMode()!;
   const [searchQuery, setSearchQuery] = useState("");
   const [showAdvanced, setShowAdvanced] = useState(false);
   const [includedIngredients, setIncludedIngredients] = useState<string[]>([]);
@@ -157,7 +154,7 @@ const AdvancedSearch: React.FC<AdvancedSearchProps> = ({
     setCookingMethods(
       cookingMethods.includes(method)
         ? cookingMethods.filter((m) => m !== method)
-        : [...cookingMethods, method]
+        : [...cookingMethods, method],
     );
   };
 
@@ -165,7 +162,7 @@ const AdvancedSearch: React.FC<AdvancedSearchProps> = ({
     setDietaryRestrictions(
       dietaryRestrictions.includes(restriction)
         ? dietaryRestrictions.filter((r) => r !== restriction)
-        : [...dietaryRestrictions, restriction]
+        : [...dietaryRestrictions, restriction],
     );
   };
 

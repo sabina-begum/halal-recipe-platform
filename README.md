@@ -236,7 +236,6 @@ This is a proprietary project. For collaboration inquiries, please contact:
 
 For support and questions:
 
-- **Email**: begumsabina81193@gmail.com
 - **Documentation**: See markdown guides in the project root: `DEPLOYMENT_GUIDE.md`, `TROUBLESHOOTING.md`, `NUTRITION_API.md`, `SECURITY.md`, and related `*.md` files.
 
 ## 🙏 Acknowledgments

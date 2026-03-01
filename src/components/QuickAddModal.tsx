@@ -6,7 +6,6 @@ import { addNotification } from "../utils/notificationUtils";
 interface QuickAddModalProps {
   open: boolean;
   onClose: () => void;
-  darkMode: boolean;
 }
 
 interface ShoppingItem {
@@ -22,8 +21,8 @@ interface ShoppingItem {
 const QuickAddModal: React.FC<QuickAddModalProps> = ({
   open,
   onClose,
-  darkMode,
 }) => {
+  const { darkMode } = useDarkMode()!;
   const { currentUser } = useAuth();
   const [name, setName] = useState<string>("");
 

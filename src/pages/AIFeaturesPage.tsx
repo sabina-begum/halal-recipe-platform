@@ -31,11 +31,11 @@ import AISubstitutions from "../components/AISubstitutions";
 import Nutrition, { NutritionData } from "../components/Nutrition";
 
 interface AIFeaturesPageProps {
-  darkMode: boolean;
   onSearch: (query: string) => void;
 }
 
-function AIFeaturesPage({ darkMode, onSearch }: AIFeaturesPageProps) {
+function AIFeaturesPage({ onSearch }: AIFeaturesPageProps) {
+  const { darkMode } = useDarkMode()!;
   const location = useLocation();
   const [selectedRecipe] = useState<unknown>(null);
   const [nutritionData] = useState<unknown>(null);

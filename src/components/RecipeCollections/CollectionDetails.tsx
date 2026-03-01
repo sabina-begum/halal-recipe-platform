@@ -7,15 +7,14 @@ interface CollectionDetailsProps {
   selectedCollection: Collection | null;
   onAddRecipe: () => void;
   onRemoveRecipe: (id: string) => void;
-  darkMode: boolean;
 }
 
 const CollectionDetails: React.FC<CollectionDetailsProps> = ({
   selectedCollection,
   onAddRecipe,
   onRemoveRecipe,
-  darkMode,
 }) => {
+  const { darkMode } = useDarkMode()!;
   if (!selectedCollection) {
     return (
       <div
@@ -77,4 +76,3 @@ const CollectionDetails: React.FC<CollectionDetailsProps> = ({
 };
 
 export default CollectionDetails;
-

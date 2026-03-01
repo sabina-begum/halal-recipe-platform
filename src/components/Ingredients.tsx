@@ -17,10 +17,10 @@ import type { Recipe } from "../types/global";
 
 interface IngredientsProps {
   recipe: unknown;
-  darkMode: boolean;
 }
 
-function Ingredients({ recipe, darkMode }: IngredientsProps) {
+function Ingredients({ recipe }: IngredientsProps) {
+  const { darkMode } = useDarkMode()!;
   if (!recipe) return null;
 
   const items = parseIngredients(recipe as Recipe);

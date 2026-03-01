@@ -26,13 +26,11 @@ const EXAMPLE_IMAGE_PLACEHOLDER =
   featuredRecipes[0]?.image ??
   "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400";
 
-interface UserRecipeSubmissionProps {
-  darkMode: boolean;
-}
 interface Ingredient {
   ingredient: string;
   measure: string;
 }
+
 interface UserRecipe {
   name: string;
   category: string;
@@ -49,9 +47,8 @@ interface UserRecipe {
   [key: string]: unknown;
 }
 
-const UserRecipeSubmission: React.FC<UserRecipeSubmissionProps> = ({
-  darkMode,
-}) => {
+const UserRecipeSubmission: React.FC = () => {
+  const { darkMode } = useDarkMode()!;
   const { currentUser, isDemoUser } = useAuth();
   const [recipe, setRecipe] = useState<UserRecipe>({
     name: "",

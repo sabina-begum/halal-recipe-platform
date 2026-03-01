@@ -14,11 +14,10 @@ import { useDarkMode } from "@/contexts/DarkModeContext";
 
 import React, { useState } from "react";
 import { cookingVideoTutorials } from "../features/recipes/data/cookingVideoTutorials";
-import type { CookingVideoData } from "../data/cookingVideoTutorials";
+import type { CookingVideoData } from "../features/recipes/data/cookingVideoTutorials";
 
 interface CookingVideosProps {
   recipe: unknown;
-  darkMode: boolean;
 }
 interface Technique {
   name: string;
@@ -26,7 +25,8 @@ interface Technique {
   difficulty: string;
 }
 
-const CookingVideos: React.FC<CookingVideosProps> = ({ recipe, darkMode }) => {
+const CookingVideos: React.FC<CookingVideosProps> = ({ recipe }) => {
+  const { darkMode } = useDarkMode()!;
   const [selectedTechnique, setSelectedTechnique] = useState<string | null>(
     null,
   );

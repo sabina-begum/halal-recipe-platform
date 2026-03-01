@@ -21,7 +21,6 @@ import SeasonalIngredients from "./SeasonalIngredients";
 import SmartNotifications from "./SmartNotifications";
 import AdvancedAnalytics from "./AdvancedAnalytics";
 import RecipeDetailsSection from "../features/recipes/RecipeDetailsSection";
-import { useDarkMode } from "../contexts/DarkModeContext";
 import CategoriesPage from "../pages/CategoriesPage";
 import RecommendationsPage from "../pages/RecommendationsPage";
 
@@ -31,7 +30,6 @@ interface MainRoutesProps {
   loading: boolean;
   error: string | null;
   nutritionLoading: boolean;
-  hasUserSearched: boolean;
 }
 
 export default function MainRoutes({
@@ -41,9 +39,6 @@ export default function MainRoutes({
   error,
   nutritionLoading,
 }: MainRoutesProps) {
-  const darkModeContext = useDarkMode();
-  const darkMode = darkModeContext?.darkMode || false;
-
   const routes: { path: string; element: React.ReactNode }[] = [
     {
       path: "/",
@@ -53,7 +48,6 @@ export default function MainRoutes({
           nutritionData={nutritionData}
           loading={loading}
           error={error}
-          darkMode={darkMode}
           nutritionLoading={nutritionLoading}
         />
       ),
@@ -64,68 +58,67 @@ export default function MainRoutes({
         <RecipeDetailsSection
           selected={selected}
           nutritionData={nutritionData}
-          darkMode={darkMode}
           nutritionLoading={nutritionLoading}
         />
       ),
     },
-    { path: "/recipes", element: <AZRecipesPage darkMode={darkMode} /> },
-    { path: "/profile", element: <UserProfile darkMode={darkMode} /> },
-    { path: "/favorites", element: <Favorites darkMode={darkMode} /> },
+    { path: "/recipes", element: <AZRecipesPage /> },
+    { path: "/profile", element: <UserProfile /> },
+    { path: "/favorites", element: <Favorites /> },
     {
       path: "/submit-recipe",
-      element: <UserRecipeSubmission darkMode={darkMode} />,
+      element: <UserRecipeSubmission />,
     },
-    { path: "/login", element: <Login darkMode={darkMode} /> },
-    { path: "/signup", element: <Signup darkMode={darkMode} /> },
+    { path: "/login", element: <Login /> },
+    { path: "/signup", element: <Signup /> },
     {
       path: "/meal-planning",
-      element: <MealPlanningCalendar darkMode={darkMode} />,
+      element: <MealPlanningCalendar />,
     },
     {
       path: "/shopping-list",
-      element: <ShoppingListGenerator darkMode={darkMode} />,
+      element: <ShoppingListGenerator />,
     },
     {
       path: "/advanced-search",
-      element: <AdvancedSearch darkMode={darkMode} onSearch={() => {}} />,
+      element: <AdvancedSearch onSearch={() => {}} />,
     },
     {
       path: "/collections",
-      element: <RecipeCollections darkMode={darkMode} />,
+      element: <RecipeCollections />,
     },
     {
       path: "/nutrition-tracker",
-      element: <NutritionTracker darkMode={darkMode} />,
+      element: <NutritionTracker />,
     },
-    { path: "/about", element: <About darkMode={darkMode} /> },
+    { path: "/about", element: <About /> },
     {
       path: "/ai-features",
-      element: <AIFeaturesPage darkMode={darkMode} onSearch={() => {}} />,
+      element: <AIFeaturesPage onSearch={() => {}} />,
     },
     {
       path: "/ingredient-inventory",
-      element: <IngredientInventory darkMode={darkMode} />,
+      element: <IngredientInventory />,
     },
     {
       path: "/seasonal-ingredients",
-      element: <SeasonalIngredients darkMode={darkMode} />,
+      element: <SeasonalIngredients />,
     },
     {
       path: "/notifications",
-      element: <SmartNotifications darkMode={darkMode} />,
+      element: <SmartNotifications />,
     },
     {
       path: "/analytics",
-      element: <AdvancedAnalytics darkMode={darkMode} />,
+      element: <AdvancedAnalytics />,
     },
     {
       path: "/categories",
-      element: <CategoriesPage darkMode={darkMode} />,
+      element: <CategoriesPage />,
     },
     {
       path: "/recommendations",
-      element: <RecommendationsPage darkMode={darkMode} />,
+      element: <RecommendationsPage />,
     },
     { path: "*", element: <div>404 - Page Not Found</div> },
   ];

@@ -21,10 +21,6 @@ import ShoppingListForm from "./ShoppingListGenerator/ShoppingListForm";
 import ShoppingListItems from "./ShoppingListGenerator/ShoppingListItems";
 import EmptyState from "./RecipeCollections/EmptyState";
 
-interface ShoppingListGeneratorProps {
-  darkMode: boolean;
-}
-
 interface ShoppingItem {
   ingredient: string;
   quantity: string;
@@ -35,7 +31,8 @@ interface ShoppingItem {
   isCustom: boolean;
 }
 
-const ShoppingListGenerator = ({ darkMode }: ShoppingListGeneratorProps) => {
+const ShoppingListGenerator = () => {
+  const { darkMode } = useDarkMode()!;
   const { currentUser, isDemoUser } = useAuth();
   const [shoppingList, setShoppingList] = useState<ShoppingItem[]>([]);
   const [newItem, setNewItem] = useState({
@@ -177,9 +174,7 @@ const ShoppingListGenerator = ({ darkMode }: ShoppingListGeneratorProps) => {
           onToggleChecked={toggleItemChecked}
         />
         {shoppingList.length === 0 && (
-          <EmptyState
-            message="Your shopping list is empty. Add some items!"
-          />
+          <EmptyState message="Your shopping list is empty. Add some items!" />
         )}
       </div>
     </div>

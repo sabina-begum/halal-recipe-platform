@@ -22,15 +22,14 @@ export interface NutritionData {
 
 interface NutritionProps {
   nutrition: NutritionData;
-  darkMode: boolean;
   loading?: boolean;
 }
 
 const Nutrition: React.FC<NutritionProps> = ({
   nutrition,
-  darkMode,
   loading = false,
 }) => {
+  const { darkMode } = useDarkMode()!;
   const [expanded, setExpanded] = useState(false); // always hidden at first
 
   if (loading) {

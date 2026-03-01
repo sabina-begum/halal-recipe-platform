@@ -1,4 +1,3 @@
-import { useDarkMode } from "@/contexts/DarkModeContext";
 /**
  * Copyright (c) 2024 Sabina Begum. All rights reserved.
  *
@@ -51,7 +50,6 @@ interface HomePageProps {
   nutritionData: NutritionData | null;
   loading: boolean;
   error: string | null;
-  darkMode: boolean;
   nutritionLoading: boolean;
 }
 
@@ -60,7 +58,6 @@ export default function HomePage({
   nutritionData,
   loading,
   error,
-  darkMode,
   nutritionLoading,
 }: HomePageProps) {
   const { currentUser, isDemoUser } = useAuth() as {
@@ -298,9 +295,7 @@ export default function HomePage({
           </div>
           <div className="space-y-4">
             <h2 className="text-xl font-semibold mb-4">Method & Nutrition</h2>
-            <Instructions
-              instructions={selected.strInstructions}
-            />
+            <Instructions instructions={selected.strInstructions} />
             <Nutrition
               nutrition={nutritionData || {}}
               loading={nutritionLoading}

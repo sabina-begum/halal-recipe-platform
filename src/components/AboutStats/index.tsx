@@ -1,6 +1,9 @@
+import { useDarkMode } from "@/contexts/DarkModeContext";
 import stats from "./data";
 
-const AboutStats = ({ darkMode }: { darkMode: boolean }) => (
+const AboutStats = () => {
+  const { darkMode } = useDarkMode()!;
+  return (
   <div className="mb-16">
     <h2
       className={`text-3xl font-bold mb-8 text-center ${
@@ -27,6 +30,7 @@ const AboutStats = ({ darkMode }: { darkMode: boolean }) => (
       ))}
     </div>
   </div>
-);
+  );
+};
 
 export default AboutStats;

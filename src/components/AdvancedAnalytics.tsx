@@ -35,10 +35,6 @@ import {
 } from "lucide-react";
 import type { AchievementIconKey } from "../utils/cookingAnalyticsUtils";
 
-interface AdvancedAnalyticsProps {
-  darkMode: boolean;
-}
-
 const ACHIEVEMENT_ICONS: Record<
   AchievementIconKey,
   React.ComponentType<{ className?: string }>
@@ -50,7 +46,8 @@ const ACHIEVEMENT_ICONS: Record<
   "chef-hat": ChefHat,
 };
 
-const AdvancedAnalytics: React.FC<AdvancedAnalyticsProps> = ({ darkMode }) => {
+const AdvancedAnalytics: React.FC = () => {
+  const { darkMode } = useDarkMode()!;
   const { currentUser, isDemoUser } = useAuth();
   const [analytics, setAnalytics] = useState<AnalyticsData | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
@@ -159,8 +156,8 @@ const AdvancedAnalytics: React.FC<AdvancedAnalyticsProps> = ({ darkMode }) => {
       100,
       Math.max(
         0,
-        Math.round((recipesPerHour * 10 + ratingBonus + streakBonus) * 100)
-      )
+        Math.round((recipesPerHour * 10 + ratingBonus + streakBonus) * 100),
+      ),
     );
   }, [analytics]);
 
@@ -468,8 +465,8 @@ const AdvancedAnalytics: React.FC<AdvancedAnalyticsProps> = ({ darkMode }) => {
                       ? "bg-green-900 border-green-600"
                       : "bg-green-50 border-green-200"
                     : darkMode
-                    ? "bg-gray-700 border-gray-500"
-                    : "bg-gray-50 border-gray-200"
+                      ? "bg-gray-700 border-gray-500"
+                      : "bg-gray-50 border-gray-200"
                 }`}
               >
                 <div className="flex items-center space-x-3">
@@ -510,8 +507,8 @@ const AdvancedAnalytics: React.FC<AdvancedAnalyticsProps> = ({ darkMode }) => {
                             ? "text-white"
                             : "text-gray-900"
                           : darkMode
-                          ? "text-gray-400"
-                          : "text-gray-600"
+                            ? "text-gray-400"
+                            : "text-gray-600"
                       }`}
                     >
                       {achievement.name}
@@ -608,7 +605,7 @@ const AdvancedAnalytics: React.FC<AdvancedAnalyticsProps> = ({ darkMode }) => {
                     </div>
                   </div>
                 </div>
-              )
+              ),
             )
           )}
         </div>

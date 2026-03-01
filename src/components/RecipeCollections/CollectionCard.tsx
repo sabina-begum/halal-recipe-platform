@@ -7,7 +7,6 @@ interface CollectionCardProps {
   isSelected: boolean;
   onSelect: (c: Collection) => void;
   onDelete: (id: string) => void;
-  darkMode: boolean;
 }
 
 const CollectionCard: React.FC<CollectionCardProps> = ({
@@ -15,8 +14,8 @@ const CollectionCard: React.FC<CollectionCardProps> = ({
   isSelected,
   onSelect,
   onDelete,
-  darkMode,
 }) => {
+  const { darkMode } = useDarkMode()!;
   return (
     <div
       className={`p-4 rounded-lg cursor-pointer transition-colors ${
@@ -71,4 +70,3 @@ const CollectionCard: React.FC<CollectionCardProps> = ({
 };
 
 export default CollectionCard;
-

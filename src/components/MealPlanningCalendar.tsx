@@ -34,13 +34,8 @@ interface MealsState {
   };
 }
 
-interface MealPlanningCalendarProps {
-  darkMode: boolean;
-}
-
-const MealPlanningCalendar: React.FC<MealPlanningCalendarProps> = ({
-  darkMode,
-}) => {
+const MealPlanningCalendar: React.FC = () => {
+  const { darkMode } = useDarkMode()!;
   const { currentUser, isDemoUser } = useAuth();
   const [currentDate, setCurrentDate] = useState<Date>(new Date());
   const [view, setView] = useState<"week" | "month">("week");

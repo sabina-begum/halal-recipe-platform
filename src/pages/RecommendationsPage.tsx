@@ -1,12 +1,7 @@
-import { useDarkMode } from "@/contexts/DarkModeContext";
 import { useMemo } from "react";
 import { useAuth } from "../contexts/useAuth";
 import { computeAdvancedAnalytics } from "../utils/advancedAnalyticsUtils";
 import AIRecommendations from "../components/AIRecommendations";
-
-interface RecommendationsPageProps {
-  darkMode: boolean;
-}
 
 /** TheMealDB filter.php accepts these category names. */
 const MEAL_DB_CATEGORIES = new Set([
@@ -43,7 +38,7 @@ function toMealDBCategory(appCategory: string): string | null {
 
 const DEFAULT_CATEGORIES = ["Vegetarian", "Seafood", "Dessert"];
 
-const RecommendationsPage = ({ darkMode }: RecommendationsPageProps) => {
+const RecommendationsPage = () => {
   const { currentUser, isDemoUser } = useAuth();
 
   const userPreferences = useMemo(() => {
@@ -68,9 +63,7 @@ const RecommendationsPage = ({ darkMode }: RecommendationsPageProps) => {
   return (
     <div className="max-w-4xl mx-auto mt-10 p-4">
       <h2 className="text-2xl font-bold mb-6">Smart Recipe Recommendations</h2>
-      <AIRecommendations
-        userPreferences={userPreferences}
-      />
+      <AIRecommendations userPreferences={userPreferences} />
     </div>
   );
 };

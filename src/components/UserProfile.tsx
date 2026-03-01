@@ -12,7 +12,7 @@ import { useDarkMode } from "@/contexts/DarkModeContext";
  * Educational use only - Commercial use prohibited.
  */
 
-import { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useAuth } from "../contexts/useAuth";
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import { db } from "../firebase/config";
@@ -33,11 +33,8 @@ interface UserProfileData {
   favoriteCuisines: string[];
 }
 
-interface UserProfileProps {
-  darkMode: boolean;
-}
-
-const UserProfile = ({ darkMode }: UserProfileProps) => {
+const UserProfile: React.FC = () => {
+  const { darkMode } = useDarkMode()!;
   const { currentUser, isDemoUser } = useAuth();
   const [profile, setProfile] = useState<UserProfileData>({
     displayName: "",

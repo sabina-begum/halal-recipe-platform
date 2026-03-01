@@ -3,10 +3,10 @@ import { useState } from "react";
 
 interface StepByStepModeProps {
   steps: string[];
-  darkMode: boolean;
 }
 
-const StepByStepMode = ({ steps, darkMode }: StepByStepModeProps) => {
+const StepByStepMode = ({ steps }: StepByStepModeProps) => {
+  const { darkMode } = useDarkMode()!;
   const [currentStep, setCurrentStep] = useState(0);
 
   const nextStep = () => {

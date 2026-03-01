@@ -24,11 +24,11 @@ interface SubstitutionDatabase {
   [ingredient: string]: Substitution[];
 }
 interface AISubstitutionsProps {
-  darkMode: boolean;
   ingredients: string[];
 }
 
-function AISubstitutions({ darkMode, ingredients }: AISubstitutionsProps) {
+function AISubstitutions({ ingredients }: AISubstitutionsProps) {
+  const { darkMode } = useDarkMode()!;
   const [selectedIngredient, setSelectedIngredient] = useState<string>("");
   const [substitutions, setSubstitutions] = useState<Substitution[]>([]);
   const [loading, setLoading] = useState<boolean>(false);

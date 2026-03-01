@@ -1,9 +1,7 @@
 import { useDarkMode } from "@/contexts/DarkModeContext";
-interface LoadingSkeletonProps {
-  darkMode: boolean;
-}
 
-export default function LoadingSkeleton({ darkMode }: LoadingSkeletonProps) {
+export default function LoadingSkeleton() {
+  const { darkMode } = useDarkMode()!;
   return (
     <div className="compact-section">
       <div
@@ -72,4 +70,3 @@ export default function LoadingSkeleton({ darkMode }: LoadingSkeletonProps) {
     </div>
   );
 }
-

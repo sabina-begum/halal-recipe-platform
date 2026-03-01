@@ -124,7 +124,7 @@ const About = () => {
         {/* Technology Section */}
         <AboutTech />
 
-        {/* CTA Section */}
+        {/*  CTA Section 
         <div className="text-center">
           <h2
             className={`text-3xl font-bold mb-4 bg-clip-text text-transparent ${
@@ -135,7 +135,7 @@ const About = () => {
           >
             Ready to Master Your Culinary Skills?
           </h2>
-          <p
+         <p
             className={`text-lg mb-8 ${
               darkMode ? "text-stone-300" : "text-gray-600"
             }`}
@@ -146,40 +146,40 @@ const About = () => {
               CULINARIA
             </span>
             .
-          </p>
-          <Link
-            to="/"
-            className="inline-flex items-center px-8 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-colors"
+          </p> */}
+        <Link
+          to="/"
+          className="inline-flex items-center px-8 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-colors"
+        >
+          <span
+            className={
+              darkMode
+                ? "text-white"
+                : "bg-gradient-to-r from-white to-gray-100 bg-clip-text text-transparent"
+            }
           >
-            <span
-              className={
-                darkMode
-                  ? "text-white"
-                  : "bg-gradient-to-r from-white to-gray-100 bg-clip-text text-transparent"
-              }
-            >
-              Start Your Culinary Journey
-            </span>
-            <svg
-              className="ml-2 w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M13 7l5 5m0 0l-5 5m5-5H6"
-              />
-            </svg>
-          </Link>
-        </div>
-
-        {/* Contact Section */}
-        <AboutContact />
+            Start Your Culinary Journey
+          </span>
+          <svg
+            className="ml-2 w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M13 7l5 5m0 0l-5 5m5-5H6"
+            />
+          </svg>
+        </Link>
       </div>
+
+      {/* Contact Section */}
+      <AboutContact />
     </div>
+    //  </div>
   );
 };
 

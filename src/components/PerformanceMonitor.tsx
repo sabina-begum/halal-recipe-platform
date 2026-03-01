@@ -12,13 +12,10 @@ import { useDarkMode } from "@/contexts/DarkModeContext";
  * Educational use only - Commercial use prohibited.
  */
 
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
-interface PerformanceMonitorProps {
-  darkMode: boolean;
-}
-
-const PerformanceMonitor = ({ darkMode }: PerformanceMonitorProps) => {
+const PerformanceMonitor: React.FC = () => {
+  const { darkMode } = useDarkMode()!;
   const [metrics, setMetrics] = useState({
     loadTime: 0,
     firstContentfulPaint: 0,
@@ -65,4 +62,3 @@ const PerformanceMonitor = ({ darkMode }: PerformanceMonitorProps) => {
 };
 
 export default PerformanceMonitor;
-

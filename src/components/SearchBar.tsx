@@ -17,11 +17,11 @@ import performanceService from "../services/performanceService";
 
 interface SearchBarProps {
   onSearch: (searchTerm: string) => void;
-  darkMode: boolean;
   loading?: boolean;
 }
 
-function SearchBar({ onSearch, darkMode, loading = false }: SearchBarProps) {
+function SearchBar({ onSearch, loading = false }: SearchBarProps) {
+  const { darkMode } = useDarkMode()!;
   const [query, setQuery] = useState("");
 
   // Handle input change with debouncing

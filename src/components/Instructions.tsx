@@ -16,10 +16,10 @@ import { cleanInstruction, isMeaningfulStep } from "../utils/textFormatters";
 
 interface InstructionsProps {
   instructions: string;
-  darkMode: boolean;
 }
 
-function Instructions({ instructions, darkMode }: InstructionsProps) {
+function Instructions({ instructions }: InstructionsProps) {
+  const { darkMode } = useDarkMode()!;
   if (!instructions) return null;
 
   const steps = instructions
