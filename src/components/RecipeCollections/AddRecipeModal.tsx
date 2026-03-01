@@ -1,6 +1,6 @@
 import { useDarkMode } from "@/contexts/DarkModeContext";
 import React from "react";
-import type { Recipe } from "../RecipeCollections";
+import type { Recipe } from "@/components/RecipeCollections";
 
 interface AddRecipeModalProps {
   showModal: boolean;

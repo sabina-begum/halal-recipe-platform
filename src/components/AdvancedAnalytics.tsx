@@ -13,13 +13,13 @@ import { useDarkMode } from "@/contexts/DarkModeContext";
  */
 
 import React, { useState, useCallback, useMemo, useEffect } from "react";
-import { useAuth } from "../contexts/useAuth";
-import { computeAdvancedAnalytics } from "../utils/advancedAnalyticsUtils";
+import { useAuth } from "@/contexts/useAuth";
+import { computeAdvancedAnalytics } from "@/utils/advancedAnalyticsUtils";
 import type {
   AnalyticsData,
   Achievement,
   Recommendation,
-} from "../utils/advancedAnalyticsUtils";
+} from "@/utils/advancedAnalyticsUtils";
 import {
   TrendingUp,
   Clock,
@@ -33,7 +33,7 @@ import {
   BookMarked,
   Globe,
 } from "lucide-react";
-import type { AchievementIconKey } from "../utils/cookingAnalyticsUtils";
+import type { AchievementIconKey } from "@/utils/cookingAnalyticsUtils";
 
 const ACHIEVEMENT_ICONS: Record<
   AchievementIconKey,

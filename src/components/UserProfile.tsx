@@ -13,9 +13,9 @@ import { useDarkMode } from "@/contexts/DarkModeContext";
  */
 
 import React, { useState, useEffect, useCallback } from "react";
-import { useAuth } from "../contexts/useAuth";
+import { useAuth } from "@/contexts/useAuth";
 import { doc, setDoc, getDoc } from "firebase/firestore";
-import { db } from "../firebase/config";
+import { db } from "@/firebase/config";
 import ProfileHeader from "./UserProfile/ProfileHeader";
 import BasicInfoSection from "./UserProfile/BasicInfoSection";
 import NutritionalGoalsSection from "./UserProfile/NutritionalGoalsSection";

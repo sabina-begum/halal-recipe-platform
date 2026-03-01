@@ -1,18 +1,18 @@
 import { useDarkMode } from "@/contexts/DarkModeContext";
 import { useEffect } from "react";
-import type { Recipe, NutritionData } from "../../types/global";
-import { cleanInstruction, isMeaningfulStep } from "../../utils/textFormatters";
-import FoodCategory from "../../components/FoodCategory";
-import Ingredients from "../../components/Ingredients";
-import Instructions from "../../components/Instructions";
-import Nutrition from "../../components/Nutrition";
-import RecipeDifficulty from "../../components/RecipeDifficulty";
-import CookingVideos from "../../components/CookingVideos";
-import RecipeScaling from "../../components/RecipeScaling";
-import RecipeRating from "../../components/RecipeRating";
-import LeftoverIntegration from "../../components/LeftoverIntegration";
-import RecipeReviews from "../../components/RecipeReviews";
-import StepByStepMode from "../../components/StepByStepMode";
+import type { Recipe, NutritionData } from "@/types/global";
+import { cleanInstruction, isMeaningfulStep } from "@/utils/textFormatters";
+import FoodCategory from "@/components/FoodCategory";
+import Ingredients from "@/components/Ingredients";
+import Instructions from "@/components/Instructions";
+import Nutrition from "@/components/Nutrition";
+import RecipeDifficulty from "@/components/RecipeDifficulty";
+import CookingVideos from "@/components/CookingVideos";
+import RecipeScaling from "@/components/RecipeScaling";
+import RecipeRating from "@/components/RecipeRating";
+import LeftoverIntegration from "@/components/LeftoverIntegration";
+import RecipeReviews from "@/components/RecipeReviews";
+import StepByStepMode from "@/components/StepByStepMode";
 
 interface RecipeDetailsSectionProps {
   selected: Recipe | null;

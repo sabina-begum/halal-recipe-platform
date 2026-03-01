@@ -1,7 +1,7 @@
 import { useDarkMode } from "@/contexts/DarkModeContext";
 import React from "react";
 import RecipeItem from "./RecipeItem";
-import type { Collection } from "../RecipeCollections";
+import type { Collection } from "@/components/RecipeCollections";
 
 interface CollectionDetailsProps {
   selectedCollection: Collection | null;

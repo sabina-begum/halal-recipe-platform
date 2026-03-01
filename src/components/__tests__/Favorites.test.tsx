@@ -1,10 +1,10 @@
 import { render, screen } from "@testing-library/react";
-import Favorites from "../Favorites";
-import { AuthContext } from "../../contexts/AuthContextDef";
-import { DarkModeProvider } from "../../contexts/DarkModeContext";
+import Favorites from "@/components/Favorites";
+import { AuthContext } from "@/contexts/AuthContextDef";
+import { DarkModeProvider } from "@/contexts/DarkModeContext";
 import { MemoryRouter } from "react-router-dom";
 import { jest, describe, beforeEach, it } from "@jest/globals";
-import type { AuthContextType } from "../../types/global";
+import type { AuthContextType } from "@/types/global";
 
 jest.mock("firebase/auth", () => ({
   createUserWithEmailAndPassword: jest.fn(),

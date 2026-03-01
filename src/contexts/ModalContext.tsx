@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useCallback } from "react";
-import type { ModalContextType } from "../types/global";
+import type { ModalContextType } from "@/types/global";
 
 const ModalContext = createContext<ModalContextType | null>(null);
 

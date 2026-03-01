@@ -13,8 +13,8 @@ import { useDarkMode } from "@/contexts/DarkModeContext";
  */
 
 import React, { useState } from "react";
-import { cookingVideoTutorials } from "../features/recipes/data/cookingVideoTutorials";
-import type { CookingVideoData } from "../features/recipes/data/cookingVideoTutorials";
+import { cookingVideoTutorials } from "@/features/recipes/data/cookingVideoTutorials";
+import type { CookingVideoData } from "@/features/recipes/data/cookingVideoTutorials";
 
 interface CookingVideosProps {
   recipe: unknown;

@@ -35,7 +35,7 @@ import type { Recipe } from "./types/global";
 import {
   featuredRecipes,
   featuredRecipeToRecipe,
-} from "./features/recipes/data/recipes";
+} from "@/features/recipes/data/recipes";
 
 // Lazy load components for better performance
 const MainLayout = lazy(() => import("./components/MainLayout"));

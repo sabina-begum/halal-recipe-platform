@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react";
-import { NutritionAPI } from "../services/nutritionAPI";
+import { NutritionAPI } from "@/services/nutritionAPI";
 
 export function useNutritionData() {
   const [nutritionData, setNutritionData] = useState<Record<

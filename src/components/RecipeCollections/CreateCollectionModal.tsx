@@ -1,6 +1,6 @@
 import { useDarkMode } from "@/contexts/DarkModeContext";
 import React from "react";
-import type { NewCollection } from "../RecipeCollections";
+import type { NewCollection } from "@/components/RecipeCollections";
 
 interface CreateCollectionModalProps {
   showModal: boolean;

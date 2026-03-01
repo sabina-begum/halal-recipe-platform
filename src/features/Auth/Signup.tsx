@@ -13,9 +13,11 @@
 
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../contexts/useAuth";
+import { useAuth } from "@/contexts/useAuth";
+import { useDarkMode } from "@/contexts/DarkModeContext";
 
-const Signup = ({ darkMode }: { darkMode: boolean }) => {
+const Signup = (): React.ReactNode => {
+  const { darkMode } = useDarkMode()!;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");

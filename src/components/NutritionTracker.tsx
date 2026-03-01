@@ -14,10 +14,10 @@ import { useDarkMode } from "@/contexts/DarkModeContext";
 
 import React, { useState, useEffect, useCallback } from "react";
 import { Helmet } from "react-helmet-async";
-import { useAuth } from "../contexts/useAuth";
+import { useAuth } from "@/contexts/useAuth";
 import { doc, setDoc, getDoc } from "firebase/firestore";
-import { db } from "../firebase/config";
-import { NutritionAPI } from "../services/nutritionAPI";
+import { db } from "@/firebase/config";
+import { NutritionAPI } from "@/services/nutritionAPI";
 import NutritionLogForm from "./NutritionTracker/NutritionLogForm";
 import NutritionLogList from "./NutritionTracker/NutritionLogList";
 import EmptyState from "./RecipeCollections/EmptyState";

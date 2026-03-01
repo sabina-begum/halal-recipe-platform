@@ -1,6 +1,6 @@
 import { useDarkMode } from "@/contexts/DarkModeContext";
 import React from "react";
-import { Meal } from "../NutritionTracker";
+import { Meal } from "@/components/NutritionTracker";
 
 interface NutritionLogItemProps {
   meal: Meal;

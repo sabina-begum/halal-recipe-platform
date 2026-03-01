@@ -12,9 +12,9 @@ import { useDarkMode } from "@/contexts/DarkModeContext";
  * Educational use only - Commercial use prohibited.
  */
 import React, { useState, useCallback, useEffect } from "react";
-import { useAuth } from "../contexts/useAuth";
-import { addNotification } from "../utils/notificationUtils";
-import { featuredRecipes } from "../features/recipes/data/recipes";
+import { useAuth } from "@/contexts/useAuth";
+import { addNotification } from "@/utils/notificationUtils";
+import { featuredRecipes } from "@/features/recipes/data/recipes";
 import CollectionCard from "./RecipeCollections/CollectionCard";
 import CollectionDetails from "./RecipeCollections/CollectionDetails";
 import CreateCollectionModal from "./RecipeCollections/CreateCollectionModal";

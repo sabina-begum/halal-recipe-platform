@@ -14,25 +14,25 @@ import { featuredRecipes } from "./data/recipes";
 import { useState, useMemo, useCallback } from "react";
 import { Link } from "react-router-dom";
 
-import { useAuth } from "../../contexts/useAuth";
-import type { Recipe, NutritionData, User } from "../../types/global";
+import { useAuth } from "@/contexts/useAuth";
+import type { Recipe, NutritionData, User } from "@/types/global";
 
-import FoodCategory from "../../components/FoodCategory";
-import Ingredients from "../../components/Ingredients";
-import Instructions from "../../components/Instructions";
-import Nutrition from "../../components/Nutrition";
-import RecipeScaling from "../../components/RecipeScaling";
-import RecipeDifficulty from "../../components/RecipeDifficulty";
-import CookingVideos from "../../components/CookingVideos";
-import LeftoverIntegration from "../../components/LeftoverIntegration";
-import RecipeReviews from "../../components/RecipeReviews";
-import LoadingSkeleton from "../../components/home/LoadingSkeleton";
-import ErrorMessage from "../../components/ErrorMessage";
-import ServicesSection from "../../components/home/ServicesSection";
+import FoodCategory from "@/components/FoodCategory";
+import Ingredients from "@/components/Ingredients";
+import Instructions from "@/components/Instructions";
+import Nutrition from "@/components/Nutrition";
+import RecipeScaling from "@/components/RecipeScaling";
+import RecipeDifficulty from "@/components/RecipeDifficulty";
+import CookingVideos from "@/components/CookingVideos";
+import LeftoverIntegration from "@/components/LeftoverIntegration";
+import RecipeReviews from "@/components/RecipeReviews";
+import LoadingSkeleton from "@/components/home/LoadingSkeleton";
+import ErrorMessage from "@/components/ErrorMessage";
+import ServicesSection from "@/components/home/ServicesSection";
 import RecipeCard from "./RecipeCard";
-import QuickAccessSection from "../../components/home/QuickAccessSection";
-import { useFavorites } from "../../hooks/useFavorites";
-import RecipeMetaHelmet from "../../components/RecipeMetaHelmet";
+import QuickAccessSection from "@/components/home/QuickAccessSection";
+import { useFavorites } from "@/hooks/useFavorites";
+import RecipeMetaHelmet from "@/components/RecipeMetaHelmet";
 // Use featured recipes as-is (no seasonal filter) so the small dataset always shows fully
 const getFeaturedRecipes = () => featuredRecipes;
 

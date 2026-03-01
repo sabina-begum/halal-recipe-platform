@@ -14,8 +14,8 @@ import { useDarkMode } from "@/contexts/DarkModeContext";
 
 import React, { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
-import { isHalal, isNonHalalIngredient } from "../utils/halal";
-import { PLACEHOLDER_IMAGE_SVG } from "../utils/imagePlaceholder";
+import { isHalal, isNonHalalIngredient } from "@/utils/halal";
+import { PLACEHOLDER_IMAGE_SVG } from "@/utils/imagePlaceholder";
 import OptimizedImage from "./ui/OptimizedImage";
 
 const MEALDB_BASE = "https://www.themealdb.com/api/json/v1/1";

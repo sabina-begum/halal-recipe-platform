@@ -1,4 +1,4 @@
-import { featuredRecipes } from "../../data/recipes";
+import { featuredRecipes } from "@/features/recipes/data/recipes";
 
 export interface StatItem {
   value: string;

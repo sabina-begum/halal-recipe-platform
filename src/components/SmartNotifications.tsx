@@ -21,8 +21,8 @@ import {
   BarChart3,
   Bell,
 } from "lucide-react";
-import { useAuth } from "../contexts/useAuth";
-import { countUniqueBy } from "../utils/arrayUtils";
+import { useAuth } from "@/contexts/useAuth";
+import { countUniqueBy } from "@/utils/arrayUtils";
 import { useDarkMode } from "@/contexts/DarkModeContext";
 
 // Add Notification type

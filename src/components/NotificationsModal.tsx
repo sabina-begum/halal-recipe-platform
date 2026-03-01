@@ -9,7 +9,7 @@ import {
   BarChart3,
   Bell,
 } from "lucide-react";
-import { useAuth } from "../contexts/useAuth";
+import { useAuth } from "@/contexts/useAuth";
 
 export interface Notification {
   id: number;

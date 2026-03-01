@@ -1,7 +1,7 @@
 import { useMemo } from "react";
-import { useAuth } from "../contexts/useAuth";
-import { computeAdvancedAnalytics } from "../utils/advancedAnalyticsUtils";
-import AIRecommendations from "../components/AIRecommendations";
+import { useAuth } from "@/contexts/useAuth";
+import { computeAdvancedAnalytics } from "@/utils/advancedAnalyticsUtils";
+import AIRecommendations from "@/components/AIRecommendations";
 
 /** TheMealDB filter.php accepts these category names. */
 const MEAL_DB_CATEGORIES = new Set([

@@ -12,7 +12,7 @@
  */
 
 import React, { useState, useEffect, useRef } from "react";
-import performanceService from "../../services/performanceService";
+import performanceService from "@/services/performanceService";
 
 interface OptimizedImageProps extends React.HTMLAttributes<HTMLDivElement> {
   src: string;

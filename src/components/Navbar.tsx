@@ -14,7 +14,7 @@ import {
 import { useDarkMode } from "@/contexts/DarkModeContext";
 import { AuthContext } from "@/contexts/AuthContextDef";
 import { useModal } from "@/contexts/ModalContext";
-import foodieLogo from "../assets/foodie-logo-simple.svg";
+import foodieLogo from "@/assets/foodie-logo-simple.svg";
 
 interface NavbarProps {
   handleSearch: (query: string) => void | Promise<void>;
