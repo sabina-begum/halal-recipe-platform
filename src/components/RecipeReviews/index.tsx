@@ -13,8 +13,8 @@ import { useDarkMode } from "@/contexts/DarkModeContext";
  */
 
 import { useState, useEffect, useCallback } from "react";
-import { useAuth } from "../../contexts/useAuth";
-import type { Review, User } from "../../types/global";
+import { useAuth } from "@/contexts/useAuth";
+import type { Review, User } from "@/types/global";
 import {
   Star,
   ThumbsUp,
@@ -23,8 +23,8 @@ import {
   Heart,
   Flag,
 } from "lucide-react";
-import { renderStars, handleShareReview } from "../../utils/ratingHelpers";
-import { formatDate } from "../../utils/dateUtils";
+import { renderStars, handleShareReview } from "@/utils/ratingHelpers";
+import { formatDate } from "@/utils/dateUtils";
 
 interface RecipeReviewsProps {
   recipeId: string;

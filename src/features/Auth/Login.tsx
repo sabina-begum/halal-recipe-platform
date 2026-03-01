@@ -13,7 +13,7 @@
 
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../contexts/useAuth";
+import { useAuth } from "@/contexts/useAuth";
 import { useDarkMode } from "@/contexts/DarkModeContext";
 
 function Login(): React.ReactNode {

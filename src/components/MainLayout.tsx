@@ -4,8 +4,9 @@ import Watermark from "./Watermark";
 import PerformanceMonitor from "./PerformanceMonitor";
 import PremiumFeatures from "./PremiumFeatures";
 import SearchBar from "./SearchBar";
-import { useModal } from "../contexts/ModalContext";
+import { useModal } from "@/contexts/ModalContext";
 import { useDarkMode } from "@/contexts/DarkModeContext";
+import { useAuth } from "@/contexts/useAuth";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import FeatureNavbar from "./navbar/FeatureNavbar";
@@ -59,10 +60,10 @@ export default function MainLayout({
   const darkModeContext = useDarkMode();
   const darkMode = darkModeContext?.darkMode || false;
   const location = useLocation();
+  const { currentUser } = useAuth();
+  const isPremium = !!currentUser?.premium;
   const [showOnboarding, setShowOnboarding] = React.useState(false);
   const [checkedOnboarding, setCheckedOnboarding] = React.useState(false);
-  const currentUser = JSON.parse(localStorage.getItem("currentUser") || "null");
-  const isPremium = !!currentUser?.premium;
 
   const shouldShowHeader = React.useMemo(() => {
     return location.pathname === "/";

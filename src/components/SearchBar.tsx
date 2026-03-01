@@ -13,7 +13,7 @@ import { useDarkMode } from "@/contexts/DarkModeContext";
  */
 
 import React, { useState } from "react";
-import performanceService from "../services/performanceService";
+import performanceService from "@/services/performanceService";
 
 interface SearchBarProps {
   onSearch: (searchTerm: string) => void;

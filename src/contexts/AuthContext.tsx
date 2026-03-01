@@ -12,7 +12,7 @@
  */
 
 import React, { useState, useEffect, useCallback, useMemo } from "react";
-import { auth } from "../firebase/config";
+import { auth } from "@/firebase/config";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -22,7 +22,7 @@ import {
   sendPasswordResetEmail,
 } from "firebase/auth";
 import { AuthContext } from "./AuthContextDef";
-import type { User } from "../types/global";
+import type { User } from "@/types/global";
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [currentUser, setCurrentUser] = useState<User | null>(null);

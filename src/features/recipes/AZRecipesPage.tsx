@@ -14,13 +14,13 @@ import { useDarkMode } from "@/contexts/DarkModeContext";
 
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import LoadingSpinner from "../../components/LoadingSpinner";
-import ErrorMessage from "../../components/ErrorMessage";
-import Button from "../../components/ui/Button";
-import OptimizedImage from "../../components/ui/OptimizedImage";
-import performanceService from "../../services/performanceService";
-import { isHalal } from "../../utils/halal";
-import type { Recipe } from "../../types/global";
+import LoadingSpinner from "@/components/LoadingSpinner";
+import ErrorMessage from "@/components/ErrorMessage";
+import Button from "@/components/ui/Button";
+import OptimizedImage from "@/components/ui/OptimizedImage";
+import performanceService from "@/services/performanceService";
+import { isHalal } from "@/utils/halal";
+import type { Recipe } from "@/types/global";
 
 interface Meal {
   idMeal: string;

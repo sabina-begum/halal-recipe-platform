@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import type { Recipe, NutritionData } from "../types/global";
+import type { Recipe, NutritionData } from "@/types/global";
 
 interface RecipeMetaHelmetProps {
   selected: Recipe | null;

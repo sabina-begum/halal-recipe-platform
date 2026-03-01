@@ -24,11 +24,11 @@ import {
   ShoppingCart,
   Calendar,
 } from "lucide-react";
-import HeadManager from "../components/HeadManager";
-import VoiceSearch from "../components/VoiceSearch";
-import AIRecommendations from "../components/AIRecommendations";
-import AISubstitutions from "../components/AISubstitutions";
-import Nutrition, { NutritionData } from "../components/Nutrition";
+import HeadManager from "@/components/HeadManager";
+import VoiceSearch from "@/components/VoiceSearch";
+import AIRecommendations from "@/components/AIRecommendations";
+import AISubstitutions from "@/components/AISubstitutions";
+import Nutrition, { NutritionData } from "@/components/Nutrition";
 
 interface AIFeaturesPageProps {
   onSearch: (query: string) => void;

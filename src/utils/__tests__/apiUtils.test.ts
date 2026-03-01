@@ -1,5 +1,5 @@
 import { describe, it, expect } from "@jest/globals";
-import { extractIngredientsFromRecipe, type Recipe } from "../apiUtils";
+import { extractIngredientsFromRecipe, type Recipe } from "@/utils/apiUtils";
 
 describe("extractIngredientsFromRecipe", () => {
   it("returns empty array for recipe with no ingredients", () => {

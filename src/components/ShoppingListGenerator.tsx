@@ -13,9 +13,9 @@ import { useDarkMode } from "@/contexts/DarkModeContext";
  */
 
 import { useState, useEffect, useCallback } from "react";
-import { useAuth } from "../contexts/useAuth";
+import { useAuth } from "@/contexts/useAuth";
 import { doc, getDoc } from "firebase/firestore";
-import { db } from "../firebase/config";
+import { db } from "@/firebase/config";
 import ShoppingListHeader from "./ShoppingListGenerator/ShoppingListHeader";
 import ShoppingListForm from "./ShoppingListGenerator/ShoppingListForm";
 import ShoppingListItems from "./ShoppingListGenerator/ShoppingListItems";

@@ -1,5 +1,5 @@
 import React from "react";
-import type { NewMeal } from "../NutritionTracker";
+import type { NewMeal } from "@/components/NutritionTracker";
 
 interface NutritionLogFormProps {
   newMeal: NewMeal;

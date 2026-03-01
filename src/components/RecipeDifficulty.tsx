@@ -12,7 +12,7 @@ import { useDarkMode } from "@/contexts/DarkModeContext";
  * Educational use only - Commercial use prohibited.
  */
 
-import type { Recipe } from "../types/global";
+import type { Recipe } from "@/types/global";
 
 interface RecipeDifficultyProps {
   recipe: Recipe;

@@ -1,7 +1,7 @@
 import { useDarkMode } from "@/contexts/DarkModeContext";
 import React, { useState, useEffect, useCallback } from "react";
-import { useAuth } from "../contexts/useAuth";
-import { ingredientCategories } from "../features/recipes/data/ingredientCategories";
+import { useAuth } from "@/contexts/useAuth";
+import { ingredientCategories } from "@/features/recipes/data/ingredientCategories";
 
 export interface InventoryItem {
   id: number;

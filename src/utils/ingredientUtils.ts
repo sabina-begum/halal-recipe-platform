@@ -1,5 +1,5 @@
 // Ingredient parsing utilities
-import type { Recipe } from "../types/global";
+import type { Recipe } from "@/types/global";
 
 /**
  * Parses a recipe object and returns an array of formatted ingredient strings.

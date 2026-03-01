@@ -12,7 +12,7 @@ import { useDarkMode } from "@/contexts/DarkModeContext";
  * Educational use only - Commercial use prohibited.
  */
 
-import { cleanInstruction, isMeaningfulStep } from "../utils/textFormatters";
+import { cleanInstruction, isMeaningfulStep } from "@/utils/textFormatters";
 
 interface InstructionsProps {
   instructions: string;

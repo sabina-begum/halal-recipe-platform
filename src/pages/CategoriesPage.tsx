@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ingredientCategories } from "../features/recipes/data/ingredientCategories";
+import { ingredientCategories } from "@/features/recipes/data/ingredientCategories";
 import { useDarkMode } from "@/contexts/DarkModeContext";
 
 const CategoriesPage = (): React.ReactNode => {

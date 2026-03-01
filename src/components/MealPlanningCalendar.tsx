@@ -13,8 +13,8 @@ import { useDarkMode } from "@/contexts/DarkModeContext";
  */
 
 import React, { useState, useEffect, useCallback } from "react";
-import { useAuth } from "../contexts/useAuth";
-import { featuredRecipes } from "../features/recipes/data/recipes";
+import { useAuth } from "@/contexts/useAuth";
+import { featuredRecipes } from "@/features/recipes/data/recipes";
 
 interface Recipe {
   id: string;

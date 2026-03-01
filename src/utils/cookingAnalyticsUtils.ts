@@ -3,7 +3,7 @@
  * No mock data — returns zeros and empty arrays when there is no activity.
  */
 
-import { featuredRecipes } from "../features/recipes/data/recipes";
+import { featuredRecipes } from "@/features/recipes/data/recipes";
 
 export interface CuisineStat {
   cuisine: string;

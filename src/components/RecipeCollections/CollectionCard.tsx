@@ -1,6 +1,6 @@
 import { useDarkMode } from "@/contexts/DarkModeContext";
 import React from "react";
-import type { Collection } from "../RecipeCollections";
+import type { Collection } from "@/components/RecipeCollections";
 
 interface CollectionCardProps {
   collection: Collection;

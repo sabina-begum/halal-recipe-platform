@@ -12,8 +12,8 @@ import { useDarkMode } from "@/contexts/DarkModeContext";
  * Educational use only - Commercial use prohibited.
  */
 
-import { parseIngredients } from "../utils/ingredientUtils";
-import type { Recipe } from "../types/global";
+import { parseIngredients } from "@/utils/ingredientUtils";
+import type { Recipe } from "@/types/global";
 
 interface IngredientsProps {
   recipe: unknown;

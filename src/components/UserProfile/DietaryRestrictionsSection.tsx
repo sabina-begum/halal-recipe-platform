@@ -1,4 +1,4 @@
-import { dietaryOptions } from "../../features/recipes/data/dietaryOptions";
+import { dietaryOptions } from "@/features/recipes/data/dietaryOptions";
 
 interface DietaryRestrictionsSectionProps {
   profile: { dietaryRestrictions: string[] };

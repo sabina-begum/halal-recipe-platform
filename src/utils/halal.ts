@@ -1,4 +1,4 @@
-import type { Recipe } from "../types/global";
+import type { Recipe } from "@/types/global";
 
 const NON_HALAL_TERMS = [
   "pork",

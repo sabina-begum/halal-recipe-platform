@@ -1,28 +1,28 @@
 import React, { Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
-import type { Recipe, NutritionData } from "../types/global";
+import type { Recipe, NutritionData } from "@/types/global";
 import LoadingSpinner from "./LoadingSpinner";
-import HomePage from "../features/recipes/Home";
-import AZRecipesPage from "../features/recipes/AZRecipesPage";
+import HomePage from "@/features/recipes/Home";
+import AZRecipesPage from "@/features/recipes/AZRecipesPage";
 import UserProfile from "./UserProfile";
 import Favorites from "./Favorites";
 import UserRecipeSubmission from "./UserRecipeSubmission";
-import Login from "../features/Auth/Login";
-import Signup from "../features/Auth/Signup";
+import Login from "@/features/Auth/Login";
+import Signup from "@/features/Auth/Signup";
 import MealPlanningCalendar from "./MealPlanningCalendar";
 import ShoppingListGenerator from "./ShoppingListGenerator";
 import AdvancedSearch from "./AdvancedSearch";
 import RecipeCollections from "./RecipeCollections";
 import NutritionTracker from "./NutritionTracker";
 import About from "./About";
-import AIFeaturesPage from "../pages/AIFeaturesPage";
+import AIFeaturesPage from "@/pages/AIFeaturesPage";
 import IngredientInventory from "./IngredientInventory";
 import SeasonalIngredients from "./SeasonalIngredients";
 import SmartNotifications from "./SmartNotifications";
 import AdvancedAnalytics from "./AdvancedAnalytics";
-import RecipeDetailsSection from "../features/recipes/RecipeDetailsSection";
-import CategoriesPage from "../pages/CategoriesPage";
-import RecommendationsPage from "../pages/RecommendationsPage";
+import RecipeDetailsSection from "@/features/recipes/RecipeDetailsSection";
+import CategoriesPage from "@/pages/CategoriesPage";
+import RecommendationsPage from "@/pages/RecommendationsPage";
 
 interface MainRoutesProps {
   selected: Recipe | null;

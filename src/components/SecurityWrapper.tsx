@@ -19,7 +19,7 @@ import React, {
   useCallback,
   ReactNode,
 } from "react";
-import { useAuth } from "../contexts/useAuth";
+import { useAuth } from "@/contexts/useAuth";
 
 interface SecurityContextValue {
   securityToken: string;

@@ -26,10 +26,10 @@ import {
   Star,
   X,
 } from "lucide-react";
-import { useAuth } from "../contexts/useAuth";
+import { useAuth } from "@/contexts/useAuth";
 import OptimizedImage from "./ui/OptimizedImage";
 import LoadingSpinner from "./LoadingSpinner";
-import { PLACEHOLDER_IMAGE_SVG } from "../utils/imagePlaceholder";
+import { PLACEHOLDER_IMAGE_SVG } from "@/utils/imagePlaceholder";
 
 interface FavoriteRecipe {
   id: string | number;

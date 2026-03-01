@@ -1,4 +1,4 @@
-import { cuisineOptions } from "../../features/recipes/data/cuisineOptions";
+import { cuisineOptions } from "@/features/recipes/data/cuisineOptions";
 
 interface FavoriteCuisinesSectionProps {
   profile: { favoriteCuisines: string[] };

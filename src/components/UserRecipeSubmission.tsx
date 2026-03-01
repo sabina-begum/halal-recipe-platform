@@ -13,14 +13,14 @@ import { useDarkMode } from "@/contexts/DarkModeContext";
  */
 
 import React, { useState } from "react";
-import { useAuth } from "../contexts/useAuth";
+import { useAuth } from "@/contexts/useAuth";
 import { addDoc, collection } from "firebase/firestore";
-import { db } from "../firebase/config";
-import { mealCategories } from "../features/recipes/data/mealCategories";
-import { cuisineOptions } from "../features/recipes/data/cuisineOptions";
-import { difficultyLevels } from "../features/recipes/data/difficultyLevels";
-import { featuredRecipes } from "../features/recipes/data/recipes";
-import { getUserDisplayName } from "../utils/userUtils";
+import { db } from "@/firebase/config";
+import { mealCategories } from "@/features/recipes/data/mealCategories";
+import { cuisineOptions } from "@/features/recipes/data/cuisineOptions";
+import { difficultyLevels } from "@/features/recipes/data/difficultyLevels";
+import { featuredRecipes } from "@/features/recipes/data/recipes";
+import { getUserDisplayName } from "@/utils/userUtils";
 
 const EXAMPLE_IMAGE_PLACEHOLDER =
   featuredRecipes[0]?.image ??

@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
-import type { DarkModeContextType } from "../types/global";
+import type { DarkModeContextType } from "@/types/global";
 
 const DarkModeContext = createContext<DarkModeContextType | null>(null);
 

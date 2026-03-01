@@ -13,7 +13,7 @@ import { useDarkMode } from "@/contexts/DarkModeContext";
  */
 
 import React, { useState, useCallback } from "react";
-import { useAuth } from "../contexts/useAuth";
+import { useAuth } from "@/contexts/useAuth";
 import {
   Crown,
   Star,

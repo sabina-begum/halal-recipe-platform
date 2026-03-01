@@ -1,6 +1,5 @@
-
 import FeatureNavbar from "./navbar/FeatureNavbar";
-import { useDarkMode } from "../contexts/DarkModeContext";
+import { useDarkMode } from "@/contexts/DarkModeContext";
 
 interface PageHeaderProps {
   isAuthPage: boolean;
@@ -32,4 +31,3 @@ export default function PageHeader({ isAuthPage }: PageHeaderProps) {
     </>
   );
 }
-

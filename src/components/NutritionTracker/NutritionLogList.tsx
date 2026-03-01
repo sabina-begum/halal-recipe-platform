@@ -1,6 +1,6 @@
 import React from "react";
 import NutritionLogItem from "./NutritionLogItem";
-import type { Meal } from "../NutritionTracker";
+import type { Meal } from "@/components/NutritionTracker";
 
 interface NutritionLogListProps {
   meals: Meal[];

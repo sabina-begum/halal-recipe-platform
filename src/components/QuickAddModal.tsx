@@ -1,7 +1,7 @@
 import { useDarkMode } from "@/contexts/DarkModeContext";
 import React, { useState } from "react";
-import { useAuth } from "../contexts/useAuth";
-import { addNotification } from "../utils/notificationUtils";
+import { useAuth } from "@/contexts/useAuth";
+import { addNotification } from "@/utils/notificationUtils";
 
 interface QuickAddModalProps {
   open: boolean;
@@ -18,10 +18,7 @@ interface ShoppingItem {
   isCustom: boolean;
 }
 
-const QuickAddModal: React.FC<QuickAddModalProps> = ({
-  open,
-  onClose,
-}) => {
+const QuickAddModal: React.FC<QuickAddModalProps> = ({ open, onClose }) => {
   const { darkMode } = useDarkMode()!;
   const { currentUser } = useAuth();
   const [name, setName] = useState<string>("");
