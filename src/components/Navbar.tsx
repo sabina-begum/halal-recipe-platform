@@ -11,9 +11,9 @@ import {
   ChevronDown,
   Globe,
 } from "lucide-react";
-import { useDarkMode } from "../contexts/DarkModeContext";
-import { AuthContext } from "../contexts/AuthContextDef";
-import { useModal } from "../contexts/ModalContext";
+import { useDarkMode } from "@/contexts/DarkModeContext";
+import { AuthContext } from "@/contexts/AuthContextDef";
+import { useModal } from "@/contexts/ModalContext";
 import foodieLogo from "../assets/foodie-logo-simple.svg";
 
 interface NavbarProps {
@@ -471,7 +471,15 @@ function Navbar({ handleSearch }: NavbarProps) {
           <form
             className="flex items-center mb-2"
             role="search"
-            onSubmit={(e) => e.preventDefault()}
+            onSubmit={async (e) => {
+              e.preventDefault();
+              if (search.trim() && handleSearch) {
+                setSearchLoading(true);
+                await handleSearch(search);
+                setSearchLoading(false);
+                setSearch("");
+              }
+            }}
           >
             <input
               id="navbar-search-mobile"
