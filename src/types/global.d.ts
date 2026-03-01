@@ -1,29 +1,42 @@
 // Global type definitions for the recipe app
 
-// Recipe types
+// Recipe types - permissive to support TheMealDB, featured recipes, and collections
 export interface Recipe {
-  idMeal: string;
-  strMeal: string;
-  strCategory: string;
-  strArea: string;
-  strInstructions: string;
-  strMealThumb: string;
+  idMeal?: string;
+  id?: string;
+  recipeId?: string;
+  strMeal?: string;
+  name?: string;
+  title?: string;
+  strCategory?: string;
+  category?: string;
+  strArea?: string;
+  strInstructions?: string;
+  description?: string;
+  strMealThumb?: string;
+  image?: string;
   strTags?: string;
   strYoutube?: string;
   strSource?: string;
   strImageSource?: string;
   strCreativeCommonsConfirmed?: string;
   dateModified?: string;
-  [key: string]: string | undefined;
+  cookTime?: string;
+  strCookTime?: string;
+  rating?: string;
+  strRating?: string;
+  [key: string]: unknown;
 }
 
 // User types
 export interface User {
   uid: string;
-  email: string | null;
-  displayName: string | null;
-  photoURL: string | null;
+  email?: string | null;
+  displayName?: string | null;
+  photoURL?: string | null;
   premium?: boolean;
+  demoData?: { favorites?: Recipe[] };
+  isDemoUser?: boolean;
   [key: string]: unknown;
 }
 
@@ -118,6 +131,9 @@ export interface Meal {
   protein: number;
   carbs: number;
   fat: number;
+  fiber: number;
+  sugar: number;
+  sodium: number;
   [key: string]: unknown;
 }
 

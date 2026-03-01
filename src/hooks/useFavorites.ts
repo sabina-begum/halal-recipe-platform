@@ -1,33 +1,6 @@
 import { useState, useCallback, useEffect } from "react";
 import { useToast } from "@/contexts/ToastContext";
-
-export interface Recipe {
-  idMeal?: string;
-  id?: string;
-  recipeId?: string;
-  strMeal?: string;
-  title?: string;
-  strMealThumb?: string;
-  image?: string;
-  strInstructions?: string;
-  description?: string;
-  cookTime?: string;
-  strCookTime?: string;
-  rating?: string;
-  strRating?: string;
-  strCategory?: string;
-  category?: string;
-  [key: string]: unknown;
-}
-
-export interface User {
-  uid?: string;
-  demoData?: {
-    favorites?: Recipe[];
-  };
-  isDemoUser?: boolean;
-  [key: string]: unknown;
-}
+import type { Recipe, User } from "@/types/global";
 
 function normalizeFavorite(recipe: Recipe) {
   return {

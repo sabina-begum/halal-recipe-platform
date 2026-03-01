@@ -20,15 +20,9 @@ import CollectionDetails from "./RecipeCollections/CollectionDetails";
 import CreateCollectionModal from "./RecipeCollections/CreateCollectionModal";
 import AddRecipeModal from "./RecipeCollections/AddRecipeModal";
 import EmptyState from "./RecipeCollections/EmptyState";
+import type { Recipe } from "@/types/global";
 
-// Types
-export interface Recipe {
-  id: string;
-  name: string;
-  category: string;
-  [key: string]: unknown;
-}
-
+export type { Recipe };
 export interface Collection {
   id: string;
   name: string;

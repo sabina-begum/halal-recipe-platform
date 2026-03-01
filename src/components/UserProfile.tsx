@@ -22,16 +22,7 @@ import NutritionalGoalsSection from "./UserProfile/NutritionalGoalsSection";
 import DietaryRestrictionsSection from "./UserProfile/DietaryRestrictionsSection";
 import FavoriteCuisinesSection from "./UserProfile/FavoriteCuisinesSection";
 import SaveButton from "./UserProfile/SaveButton";
-
-interface UserProfileData {
-  displayName: string;
-  dailyCalories: number;
-  proteinGoal: number;
-  carbsGoal: number;
-  fatGoal: number;
-  dietaryRestrictions: string[];
-  favoriteCuisines: string[];
-}
+import type { UserProfileData } from "@/types/global";
 
 const UserProfile: React.FC = () => {
   const { darkMode } = useDarkMode()!;

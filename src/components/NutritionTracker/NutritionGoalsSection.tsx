@@ -1,5 +1,5 @@
 import React from "react";
-import type { NutritionGoals } from "@/components/NutritionTracker";
+import type { NutritionGoals } from "@/types/global";
 
 interface NutritionGoalsSectionProps {
   nutritionGoals: NutritionGoals;

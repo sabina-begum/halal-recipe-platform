@@ -21,30 +21,7 @@ import { NutritionAPI } from "@/services/nutritionAPI";
 import NutritionLogForm from "./NutritionTracker/NutritionLogForm";
 import NutritionLogList from "./NutritionTracker/NutritionLogList";
 import EmptyState from "./RecipeCollections/EmptyState";
-
-export interface NutritionGoals {
-  calories: number;
-  protein: number;
-  carbs: number;
-  fat: number;
-  fiber: number;
-  sugar: number;
-  sodium: number;
-}
-
-export interface Meal {
-  id?: number;
-  name: string;
-  ingredients: string;
-  calories: number;
-  protein: number;
-  carbs: number;
-  fat: number;
-  fiber: number;
-  sugar: number;
-  sodium: number;
-  [key: string]: unknown;
-}
+import type { NutritionGoals, Meal } from "@/types/global";
 
 export interface NewMeal {
   name: string;
