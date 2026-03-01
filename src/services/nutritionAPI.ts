@@ -151,6 +151,36 @@ export class NutritionAPI {
     return nutrition;
   }
 
+  // Parse a nutrition display value (e.g. "250 kcal", "12.0g") to numeric value and unit for summing
+  private static parseNutritionValue(
+    str: string,
+  ): { value: number; unit: string } | null {
+    const trimmed = str.trim();
+    const match = trimmed.match(/^([\d.]+)\s*(\S*)$/);
+    if (!match) return null;
+    const value = parseFloat(match[1]);
+    if (Number.isNaN(value)) return null;
+    const unit = (match[2] || "").trim();
+    return { value, unit };
+  }
+
+  // Add two nutrition display values (e.g. "100 kcal" + "150 kcal" => "250 kcal")
+  private static addNutritionValues(
+    existing: string,
+    incoming: string,
+  ): string {
+    const a = NutritionAPI.parseNutritionValue(existing);
+    const b = NutritionAPI.parseNutritionValue(incoming);
+    if (!a || !b) return incoming;
+    const sum = a.value + b.value;
+    const unit = a.unit || b.unit;
+    if (!unit) return sum.toFixed(2);
+    if (["kcal", "mg", "IU"].includes(unit)) {
+      return `${Math.round(sum)} ${unit}`.trim();
+    }
+    return `${sum.toFixed(1)} ${unit}`.trim();
+  }
+
   // Get nutrition data for a list of ingredients
   static async getNutritionForIngredients(
     ingredients: string[],
@@ -200,12 +230,13 @@ export class NutritionAPI {
                 `Extracted nutrition for ${cleanIngredient}:`,
                 nutrition,
               );
-              // Merge nutrition data (average if multiple ingredients have same nutrient)
+              // Sum nutrition data across all ingredients (was overwriting before)
               Object.entries(nutrition).forEach(([nutrient, value]) => {
                 if (nutritionData[nutrient]) {
-                  // For now, just use the latest value
-                  // In a more sophisticated version, you'd calculate totals
-                  nutritionData[nutrient] = value;
+                  nutritionData[nutrient] = this.addNutritionValues(
+                    nutritionData[nutrient],
+                    value,
+                  );
                 } else {
                   nutritionData[nutrient] = value;
                 }
