@@ -4,7 +4,7 @@
   <img src="src/assets/foodie-logo-simple.svg" alt="CULINARIA Logo" width="120" height="120" />
   <h1>🍽️ CULINARIA</h1>
   <p><strong>Professional Cooking Platform & Recipe Discovery</strong></p>
-  <p><strong>Live demo:</strong> <a href="https://merry-mandazi-9785be.netlify.app" target="_blank" rel="noopener noreferrer">merry-mandazi-9785be.netlify.app</a></p>
+  <p><strong>Live demo:</strong> <a href="https://halalrecipefilter.netlify.app/" target="_blank" rel="noopener noreferrer">merry-mandazi-9785be.netlify.app</a></p>
 </div>
 
 ## 🌟 Features
