@@ -8,6 +8,7 @@
 
 const fs = require("fs");
 const path = require("path");
+const crypto = require("crypto");
 
 class SecurityMonitor {
   constructor() {
@@ -93,10 +94,8 @@ class SecurityMonitor {
 
   // Generate unique session ID
   generateSessionId() {
-    return (
-      Math.random().toString(36).substring(2, 15) +
-      Math.random().toString(36).substring(2, 15)
-    );
+    // Use cryptographically secure random bytes for session ID generation
+    return crypto.randomBytes(16).toString("hex");
   }
 
   // Write to security log
