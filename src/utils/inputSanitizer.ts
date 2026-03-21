@@ -13,6 +13,8 @@
 
 // Input sanitization utilities to prevent XSS and injection attacks
 
+import sanitizeHtml from "sanitize-html";
+
 // HTML entity mapping for escaping
 const HTML_ENTITIES: { [key: string]: string } = {
   "&": "&amp;",
@@ -36,20 +38,14 @@ export const escapeHtml = (text: unknown) => {
 export const sanitizeInput = (input: unknown) => {
   if (typeof input !== "string") return input;
 
-  return (input as string)
-    .trim()
-    .replace(/[<>]/g, "") // Remove potential HTML tags
-    .replace(/javascript:/gi, "") // Remove javascript: protocol
-    .replace(/on\w+=/gi, "") // Remove event handlers
-    .replace(/data:/gi, "") // Remove data: protocol
-    .replace(/vbscript:/gi, "") // Remove vbscript: protocol
-    .replace(/expression\(/gi, "") // Remove CSS expressions
-    .replace(/url\(/gi, "") // Remove CSS url() functions
-    .replace(/eval\(/gi, "") // Remove eval() calls
-    .replace(/document\./gi, "") // Remove document access
-    .replace(/window\./gi, "") // Remove window access
-    .replace(/localStorage\./gi, "") // Remove localStorage access
-    .replace(/sessionStorage\./gi, ""); // Remove sessionStorage access
+  const trimmed = (input as string).trim();
+
+  // Use a well-tested library to sanitize input and avoid incomplete multi-character sanitization
+  // Strip all HTML tags and attributes, leaving only safe text content.
+  return sanitizeHtml(trimmed, {
+    allowedTags: [],
+    allowedAttributes: {},
+  });
 };
 
 // Validate and sanitize email
