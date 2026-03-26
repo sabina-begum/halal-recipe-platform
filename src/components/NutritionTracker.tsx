@@ -640,7 +640,7 @@ const NutritionTracker: React.FC = () => {
                       <span className="font-medium text-neutral-800 dark:text-stone-300 capitalize">
                         {nutrient}
                       </span>
-                      <span className="text-neutral-600 dark:text-stone-400">
+                      <span className="text-neutral-600 dark:text-stone-300">
                         {formatNutrient(current, unit)} /{" "}
                         {formatNutrient(goal, unit)}
                       </span>
@@ -678,7 +678,7 @@ const NutritionTracker: React.FC = () => {
                 <div className="flex justify-between items-center mb-2">
                   <span
                     className={`text-lg font-bold ${
-                      darkMode ? "text-green-400" : "text-green-600"
+                      darkMode ? "text-green-300" : "text-green-600"
                     }`}
                   >
                     {formatNutrient(dailyLog[nutrient as keyof NutritionGoals])}

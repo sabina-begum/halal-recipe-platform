@@ -54,10 +54,10 @@ function Footer() {
               CULINARIA
             </span>
           </div>
-          <span className="text-stone-500 dark:text-stone-400 text-sm">
+          <span className="text-stone-700 dark:text-stone-300 text-sm">
             &copy; {new Date().getFullYear()} All rights reserved.
           </span>
-          <span className="text-xs text-stone-400 dark:text-stone-500">
+          <span className="text-xs text-stone-600 dark:text-stone-400">
             Crafted for culinary inspiration.
           </span>
         </div>
