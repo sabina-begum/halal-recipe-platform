@@ -421,9 +421,10 @@ const NutritionTracker: React.FC = () => {
 
   const getProgressColor = (current: number, goal: number) => {
     const percentage = (current / goal) * 100;
-    if (percentage < 80) return "bg-red-500";
-    if (percentage < 100) return "bg-yellow-500";
-    return "bg-green-500";
+    // Darker fills improve non-text / adjacent contrast vs. track (Lighthouse CI).
+    if (percentage < 80) return "bg-red-600 dark:bg-red-500";
+    if (percentage < 100) return "bg-amber-600 dark:bg-amber-500";
+    return "bg-green-600 dark:bg-green-500";
   };
 
   const formatNutrient = (value: number, unit = "g") => {
@@ -437,7 +438,7 @@ const NutritionTracker: React.FC = () => {
           <h1 className="text-2xl font-bold text-green-900 dark:text-green-300 mb-4">
             Please log in to access Nutrition Tracker
           </h1>
-          <p className="text-neutral-600 dark:text-stone-400">
+          <p className="text-neutral-600 dark:text-stone-300">
             Sign in to track your daily nutrition goals and get personalized
             recommendations.
           </p>

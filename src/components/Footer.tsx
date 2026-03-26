@@ -126,7 +126,7 @@ function Footer() {
           <h2 className="text-base font-semibold text-stone-700 dark:text-stone-200 mb-3">
             Newsletter
           </h2>
-          <p className="text-xs text-stone-500 dark:text-stone-400 mb-3">
+          <p className="text-xs text-stone-600 dark:text-stone-300 mb-3">
             Get the latest recipes, tips, and culinary news. No spam, ever.
           </p>
           <form

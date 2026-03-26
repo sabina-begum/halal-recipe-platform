@@ -23,11 +23,15 @@ export default function ShoppingListItem({
   const { darkMode } = useDarkMode()!;
   return (
     <div
-      className={`flex items-center justify-between p-3 rounded-lg border transition-opacity ${
+      className={`flex items-center justify-between p-3 rounded-lg border transition-colors ${
         darkMode
-          ? "bg-neutral-800 border-neutral-600 text-white"
-          : "bg-white border-gray-200 text-gray-900"
-      } ${item.checked ? "opacity-60" : ""}`}
+          ? `bg-neutral-800 border-neutral-600 text-white ${
+              item.checked ? "border-stone-600 bg-stone-900" : ""
+            }`
+          : `bg-white border-gray-200 text-gray-900 ${
+              item.checked ? "border-stone-200 bg-stone-50" : ""
+            }`
+      }`}
     >
       <div className="flex items-center gap-3 flex-1">
         <input
