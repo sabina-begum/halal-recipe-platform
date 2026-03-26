@@ -159,7 +159,6 @@ const NutritionTracker: React.FC = () => {
             setAge(data.profile.age ?? 30);
             setWeight(data.profile.weight ?? 70);
             setHeight(data.profile.height ?? 170);
-            setGender(data.profile.gender ?? "female");
             setActivityLevel(data.profile.activityLevel ?? "moderate");
             setGoal(data.profile.goal ?? "maintain");
           }
@@ -256,7 +255,6 @@ const NutritionTracker: React.FC = () => {
               age,
               weight,
               height,
-              gender,
               activityLevel,
               goal,
             },

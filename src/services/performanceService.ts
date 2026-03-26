@@ -249,9 +249,18 @@ class PerformanceService {
         .toDataURL("image/webp")
         .indexOf("data:image/webp") === 0;
 
-    if (supportsWebP && url.includes("themealdb.com")) {
-      // For external images, we can't optimize, but we can add width
-      return url;
+    if (supportsWebP) {
+      try {
+        const parsedUrl = new URL(url);
+        const allowedHosts = ["themealdb.com", "www.themealdb.com"];
+
+        if (allowedHosts.includes(parsedUrl.hostname)) {
+          // For external images, we can't optimize, but we can add width
+          return url;
+        }
+      } catch {
+        // If the URL is invalid, fall through and just return the original URL
+      }
     }
 
     return url;
