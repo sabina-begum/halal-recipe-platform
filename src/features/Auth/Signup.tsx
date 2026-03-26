@@ -98,7 +98,11 @@ const Signup = (): React.ReactNode => {
             : "bg-white border-gray-200"
         }`}
       >
-        <h2 className="text-4xl font-bold text-center mb-8 bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent">
+        <h2
+          className={`text-4xl font-bold text-center mb-8 ${
+            darkMode ? "text-orange-300" : "text-orange-800"
+          }`}
+        >
           Create Your Account
         </h2>
 
@@ -214,8 +218,13 @@ const Signup = (): React.ReactNode => {
           >
             Already have an account?{" "}
             <button
+              type="button"
               onClick={handleSwitchToLogin}
-              className="text-orange-500 hover:text-orange-400 font-medium"
+              className={`font-medium underline underline-offset-2 ${
+                darkMode
+                  ? "text-orange-300 hover:text-orange-200"
+                  : "text-orange-800 hover:text-orange-900"
+              }`}
             >
               Login
             </button>

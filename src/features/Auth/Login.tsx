@@ -173,15 +173,23 @@ function Login(): React.ReactNode {
             : "bg-white border-gray-200"
         }`}
       >
-        <h2 className="text-4xl font-bold text-center mb-8 bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent">
+        <h2
+          className={`text-4xl font-bold text-center mb-8 ${
+            darkMode ? "text-orange-300" : "text-orange-800"
+          }`}
+        >
           Welcome Back
         </h2>
 
         {/* Demo Login Button */}
         <div className="text-center mb-6">
           <button
+            type="button"
             onClick={handleDemoLoginClick}
             disabled={loading}
+            aria-label={
+              loading ? "Creating demo account" : "Try demo account with sample data"
+            }
             className={`w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200 ${
               loading ? "opacity-50 cursor-not-allowed" : ""
             }`}
@@ -285,8 +293,13 @@ function Login(): React.ReactNode {
           >
             Don&apos;t have an account?{" "}
             <button
+              type="button"
               onClick={handleSwitchToSignup}
-              className="text-orange-500 hover:text-orange-400 font-medium"
+              className={`font-medium underline underline-offset-2 ${
+                darkMode
+                  ? "text-orange-300 hover:text-orange-200"
+                  : "text-orange-800 hover:text-orange-900"
+              }`}
             >
               Create one
             </button>

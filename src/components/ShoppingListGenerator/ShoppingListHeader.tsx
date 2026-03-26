@@ -11,7 +11,11 @@ export default function ShoppingListHeader({
   const { darkMode } = useDarkMode()!;
   return (
     <div className="flex justify-between items-center mb-6">
-      <h2 className="text-2xl font-bold bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent">
+      <h2
+        className={`text-2xl font-bold ${
+          darkMode ? "text-orange-300" : "text-orange-800"
+        }`}
+      >
         Shopping List
       </h2>
       <div className="flex gap-2">
@@ -39,4 +43,3 @@ export default function ShoppingListHeader({
     </div>
   );
 }
-

@@ -392,7 +392,11 @@ const MealPlanningCalendar: React.FC = () => {
       >
         {/* Header */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-4 sm:mb-6 gap-4">
-          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent">
+          <h2
+            className={`text-xl sm:text-2xl lg:text-3xl font-bold ${
+              darkMode ? "text-orange-300" : "text-orange-800"
+            }`}
+          >
             Meal Planning Calendar
           </h2>
 

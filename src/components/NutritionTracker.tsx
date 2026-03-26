@@ -437,7 +437,7 @@ const NutritionTracker: React.FC = () => {
           <h1 className="text-2xl font-bold text-green-900 dark:text-green-300 mb-4">
             Please log in to access Nutrition Tracker
           </h1>
-          <p className="text-neutral-400">
+          <p className="text-neutral-600 dark:text-stone-400">
             Sign in to track your daily nutrition goals and get personalized
             recommendations.
           </p>
@@ -478,7 +478,7 @@ const NutritionTracker: React.FC = () => {
           >
             Nutrition Tracker
           </h1>
-          <p className="text-lg text-neutral-400">
+          <p className="text-lg text-neutral-600 dark:text-stone-400">
             Monitor your daily nutrition goals and get personalized
             recommendations with CULINARIA
           </p>
@@ -636,10 +636,10 @@ const NutritionTracker: React.FC = () => {
                 return (
                   <div key={nutrient} className="space-y-2">
                     <div className="flex justify-between text-sm">
-                      <span className="font-medium text-neutral-50 dark:text-stone-300 capitalize">
+                      <span className="font-medium text-neutral-800 dark:text-stone-300 capitalize">
                         {nutrient}
                       </span>
-                      <span className="text-neutral-400 dark:text-stone-400">
+                      <span className="text-neutral-600 dark:text-stone-400">
                         {formatNutrient(current, unit)} /{" "}
                         {formatNutrient(goal, unit)}
                       </span>

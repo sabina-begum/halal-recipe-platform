@@ -2,7 +2,8 @@
   "ci": {
     "collect": {
       "startServerCommand": "npm run preview -- --host 127.0.0.1 --port 4173",
-      "startServerReadyPattern": "Local:",
+      "startServerReadyPattern": "127.0.0.1:4173",
+      "startServerReadyTimeout": 60000,
       "numberOfRuns": 3,
       "settings": {
         "chromeFlags": "--no-sandbox --disable-dev-shm-usage --disable-gpu"
