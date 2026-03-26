@@ -6,9 +6,19 @@ on:
     branches:
       - main
 
+# Opt checkout/setup-node and other JS actions into Node 24 (GitHub deprecation of Node 20 for actions).
+# See: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+# Lighthouse CI (lhci) runs on ubuntu-latest; Chromium needs --no-sandbox in CI
+# (see lighthouserc*.json settings.chromeFlags). If a job still fails, open the
+# failed step log and search for "Assertion failed" or Chrome/Puppeteer errors.
+
 jobs:
   lighthouse-accessibility:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -16,7 +26,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
 
       - name: Install dependencies
@@ -27,9 +37,12 @@ jobs:
 
       - name: Run Lighthouse accessibility baseline
         run: npm run a11y:ci
+        env:
+          NODE_OPTIONS: --max-old-space-size=6144
 
   lighthouse-accessibility-authenticated:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -37,7 +50,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
 
       - name: Install dependencies
@@ -48,3 +61,5 @@ jobs:
 
       - name: Run Lighthouse accessibility authenticated profile
         run: npm run a11y:ci:auth
+        env:
+          NODE_OPTIONS: --max-old-space-size=6144
