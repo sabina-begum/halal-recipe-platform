@@ -148,3 +148,5 @@ workbox-*.js
 *~
 
 CLAUDE.md
+
+.lighthouseci/

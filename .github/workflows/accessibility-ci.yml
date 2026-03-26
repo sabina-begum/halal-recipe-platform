@@ -1,0 +1,50 @@
+name: Accessibility CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  lighthouse-accessibility:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build app
+        run: npm run build
+
+      - name: Run Lighthouse accessibility baseline
+        run: npm run a11y:ci
+
+  lighthouse-accessibility-authenticated:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build app
+        run: npm run build
+
+      - name: Run Lighthouse accessibility authenticated profile
+        run: npm run a11y:ci:auth

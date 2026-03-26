@@ -1,0 +1,27 @@
+{
+  "ci": {
+    "collect": {
+      "startServerCommand": "npm run preview -- --host 127.0.0.1 --port 4173",
+      "startServerReadyPattern": "Local:",
+      "url": [
+        "http://127.0.0.1:4173/",
+        "http://127.0.0.1:4173/login",
+        "http://127.0.0.1:4173/signup",
+        "http://127.0.0.1:4173/profile",
+        "http://127.0.0.1:4173/recipes",
+        "http://127.0.0.1:4173/recipe/52772",
+        "http://127.0.0.1:4173/collections",
+        "http://127.0.0.1:4173/meal-planning"
+      ],
+      "numberOfRuns": 2
+    },
+    "assert": {
+      "assertions": {
+        "categories:accessibility": ["error", { "minScore": 1 }]
+      }
+    },
+    "upload": {
+      "target": "temporary-public-storage"
+    }
+  }
+}
