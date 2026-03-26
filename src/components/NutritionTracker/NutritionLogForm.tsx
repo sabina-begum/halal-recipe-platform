@@ -24,8 +24,14 @@ const NutritionLogForm: React.FC<NutritionLogFormProps> = ({
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-          <label className="block text-sm font-medium mb-1">Meal Name</label>
+          <label
+            htmlFor="nutrition-log-meal-name"
+            className="block text-sm font-medium mb-1"
+          >
+            Meal Name
+          </label>
           <input
+            id="nutrition-log-meal-name"
             type="text"
             value={newMeal.name}
             onChange={(e) => setNewMeal({ ...newMeal, name: e.target.value })}
@@ -34,8 +40,14 @@ const NutritionLogForm: React.FC<NutritionLogFormProps> = ({
           />
         </div>
         <div>
-          <label className="block text-sm font-medium mb-1">Ingredients</label>
+          <label
+            htmlFor="nutrition-log-ingredients"
+            className="block text-sm font-medium mb-1"
+          >
+            Ingredients
+          </label>
           <input
+            id="nutrition-log-ingredients"
             type="text"
             value={newMeal.ingredients}
             onChange={(e) =>
@@ -48,8 +60,14 @@ const NutritionLogForm: React.FC<NutritionLogFormProps> = ({
       </div>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <div>
-          <label className="block text-sm font-medium mb-1">Calories</label>
+          <label
+            htmlFor="nutrition-log-calories"
+            className="block text-sm font-medium mb-1"
+          >
+            Calories
+          </label>
           <input
+            id="nutrition-log-calories"
             type="number"
             value={newMeal.calories}
             onChange={(e) =>
@@ -60,8 +78,14 @@ const NutritionLogForm: React.FC<NutritionLogFormProps> = ({
           />
         </div>
         <div>
-          <label className="block text-sm font-medium mb-1">Protein (g)</label>
+          <label
+            htmlFor="nutrition-log-protein"
+            className="block text-sm font-medium mb-1"
+          >
+            Protein (g)
+          </label>
           <input
+            id="nutrition-log-protein"
             type="number"
             value={newMeal.protein}
             onChange={(e) =>
@@ -72,8 +96,14 @@ const NutritionLogForm: React.FC<NutritionLogFormProps> = ({
           />
         </div>
         <div>
-          <label className="block text-sm font-medium mb-1">Carbs (g)</label>
+          <label
+            htmlFor="nutrition-log-carbs"
+            className="block text-sm font-medium mb-1"
+          >
+            Carbs (g)
+          </label>
           <input
+            id="nutrition-log-carbs"
             type="number"
             value={newMeal.carbs}
             onChange={(e) => setNewMeal({ ...newMeal, carbs: e.target.value })}
@@ -82,8 +112,14 @@ const NutritionLogForm: React.FC<NutritionLogFormProps> = ({
           />
         </div>
         <div>
-          <label className="block text-sm font-medium mb-1">Fat (g)</label>
+          <label
+            htmlFor="nutrition-log-fat"
+            className="block text-sm font-medium mb-1"
+          >
+            Fat (g)
+          </label>
           <input
+            id="nutrition-log-fat"
             type="number"
             value={newMeal.fat}
             onChange={(e) => setNewMeal({ ...newMeal, fat: e.target.value })}

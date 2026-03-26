@@ -33,7 +33,11 @@ export default function ShoppingListForm({
       }}
       className="flex gap-2 mb-4"
     >
+      <label htmlFor="shopping-list-custom-ingredient" className="sr-only">
+        Add custom ingredient
+      </label>
       <input
+        id="shopping-list-custom-ingredient"
         type="text"
         placeholder="Add custom ingredient..."
         className={`w-full p-2 border rounded ${

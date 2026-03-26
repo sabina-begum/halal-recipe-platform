@@ -205,7 +205,7 @@ function Navbar({ handleSearch }: NavbarProps) {
                 logoHover ? "scale-110 rotate-6" : "scale-100"
               }`}
             />
-            <span className="text-2xl font-bold bg-gradient-to-r from-green-600 to-emerald-700 dark:from-green-400 dark:to-emerald-500 bg-clip-text text-transparent tracking-tight select-none transition-all duration-300 group-hover:scale-105">
+            <span className="text-2xl font-bold text-green-800 dark:text-green-400 tracking-tight select-none transition-all duration-300 group-hover:scale-105">
               CULINARIA
             </span>
           </Link>

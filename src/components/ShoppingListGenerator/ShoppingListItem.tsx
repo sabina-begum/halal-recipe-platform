@@ -51,6 +51,7 @@ export default function ShoppingListItem({
         </div>
       </div>
       <button
+        type="button"
         onClick={onRemove}
         className={`ml-2 px-2 py-1 text-xs rounded ${
           darkMode

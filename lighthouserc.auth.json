@@ -2,7 +2,7 @@
   "ci": {
     "collect": {
       "startServerCommand": "npm run preview -- --host 127.0.0.1 --port 4173",
-      "startServerReadyPattern": "127.0.0.1:4173",
+      "startServerReadyPattern": "4173",
       "startServerReadyTimeout": 60000,
       "puppeteerScript": "scripts/lighthouse-auth-session.cjs",
       "puppeteerLaunchOptions": {

@@ -670,9 +670,7 @@
     }
   },
   "configSettings": {
-    "output": [
-      "json"
-    ],
+    "output": ["json"],
     "maxWaitForFcp": 30000,
     "maxWaitForLoad": 45000,
     "pauseAfterFcpMs": 1000,
@@ -719,9 +717,7 @@
     "extraHeaders": null,
     "precomputedLanternData": null,
     "onlyAudits": null,
-    "onlyCategories": [
-      "accessibility"
-    ],
+    "onlyCategories": ["accessibility"],
     "skipAudits": null
   },
   "categories": {
@@ -729,10 +725,7 @@
       "title": "Accessibility",
       "description": "These checks highlight opportunities to [improve the accessibility of your web app](https://developer.chrome.com/docs/lighthouse/accessibility/). Automatic detection can only detect a subset of issues and does not guarantee the accessibility of your web app, so [manual testing](https://web.dev/articles/how-to-review) is also encouraged.",
       "manualDescription": "These items address areas which an automated testing tool cannot cover. Learn more in our guide on [conducting an accessibility review](https://web.dev/articles/how-to-review).",
-      "supportedModes": [
-        "navigation",
-        "snapshot"
-      ],
+      "supportedModes": ["navigation", "snapshot"],
       "auditRefs": [
         {
           "id": "accesskeys",
@@ -1170,26 +1163,19 @@
   "entities": [
     {
       "name": "127.0.0.1",
-      "origins": [
-        "http://127.0.0.1:4173"
-      ],
+      "origins": ["http://127.0.0.1:4173"],
       "isFirstParty": true,
       "isUnrecognized": true
     },
     {
       "name": "Other Google APIs/SDKs",
       "homepage": "https://developers.google.com/apis-explorer/#p/",
-      "origins": [
-        "https://apis.google.com",
-        "https://www.googleapis.com"
-      ],
+      "origins": ["https://apis.google.com", "https://www.googleapis.com"],
       "category": "utility"
     },
     {
       "name": "firebaseapp.com",
-      "origins": [
-        "https://your-project.firebaseapp.com"
-      ],
+      "origins": ["https://your-project.firebaseapp.com"],
       "isUnrecognized": true
     }
   ],
@@ -2019,9 +2005,7 @@
       "core/audits/accessibility/button-name.js | description": [
         "audits[button-name].description"
       ],
-      "core/audits/accessibility/bypass.js | title": [
-        "audits.bypass.title"
-      ],
+      "core/audits/accessibility/bypass.js | title": ["audits.bypass.title"],
       "core/audits/accessibility/bypass.js | description": [
         "audits.bypass.description"
       ],
@@ -2037,9 +2021,7 @@
       "core/audits/accessibility/definition-list.js | description": [
         "audits[definition-list].description"
       ],
-      "core/audits/accessibility/dlitem.js | title": [
-        "audits.dlitem.title"
-      ],
+      "core/audits/accessibility/dlitem.js | title": ["audits.dlitem.title"],
       "core/audits/accessibility/dlitem.js | description": [
         "audits.dlitem.description"
       ],
@@ -2133,9 +2115,7 @@
       "core/audits/accessibility/label-content-name-mismatch.js | description": [
         "audits[label-content-name-mismatch].description"
       ],
-      "core/audits/accessibility/label.js | title": [
-        "audits.label.title"
-      ],
+      "core/audits/accessibility/label.js | title": ["audits.label.title"],
       "core/audits/accessibility/label.js | description": [
         "audits.label.description"
       ],
@@ -2157,9 +2137,7 @@
       "core/audits/accessibility/link-in-text-block.js | description": [
         "audits[link-in-text-block].description"
       ],
-      "core/audits/accessibility/list.js | title": [
-        "audits.list.title"
-      ],
+      "core/audits/accessibility/list.js | title": ["audits.list.title"],
       "core/audits/accessibility/list.js | description": [
         "audits.list.description"
       ],

@@ -50,7 +50,7 @@ function Footer() {
               alt="Culinaria Logo"
               className="w-10 h-10 rounded-lg shadow"
             />
-            <span className="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-green-600 to-emerald-700 dark:from-green-400 dark:to-emerald-500 bg-clip-text text-transparent select-none">
+            <span className="text-2xl font-extrabold tracking-tight text-green-800 dark:text-green-400 select-none">
               CULINARIA
             </span>
           </div>

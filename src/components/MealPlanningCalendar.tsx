@@ -475,6 +475,7 @@ const MealPlanningCalendar: React.FC = () => {
                       : "bg-stone-200 text-stone-700"
                 }`}
                 type="button"
+                aria-pressed={view === "week"}
               >
                 Week
               </button>
@@ -488,6 +489,7 @@ const MealPlanningCalendar: React.FC = () => {
                       : "bg-stone-200 text-stone-700"
                 }`}
                 type="button"
+                aria-pressed={view === "month"}
               >
                 Month
               </button>
@@ -534,10 +536,16 @@ const MealPlanningCalendar: React.FC = () => {
                     const dateKey = date.toISOString().split("T")[0];
                     const meal = meals[dateKey]?.[mealType];
 
+                    const openSlotModal = () => {
+                      setSelectedMealSlot({ date, mealType });
+                      setShowRecipeModal(true);
+                    };
+                    const slotLabel = `${mealType} on ${formatDate(date)}`;
+
                     return (
                       <div
                         key={`${mealType}-${index}`}
-                        className={`p-1 sm:p-2 min-h-[60px] sm:min-h-[80px] border-2 border-dashed rounded-lg cursor-pointer transition-colors ${
+                        className={`p-1 sm:p-2 min-h-[60px] sm:min-h-[80px] border-2 border-dashed rounded-lg transition-colors ${
                           meal
                             ? darkMode
                               ? "border-green-500 bg-green-900/20"
@@ -546,33 +554,43 @@ const MealPlanningCalendar: React.FC = () => {
                               ? "border-stone-600 hover:border-stone-500"
                               : "border-stone-300 hover:border-stone-400"
                         }`}
-                        onClick={() => {
-                          setSelectedMealSlot({ date, mealType });
-                          setShowRecipeModal(true);
-                        }}
                       >
                         {meal ? (
-                          <div className="text-xs sm:text-sm">
-                            <div className="font-medium truncate">
-                              {meal.name}
-                            </div>
-                            <div className="text-xs opacity-75 truncate">
-                              {meal.category}
-                            </div>
+                          <div className="flex flex-col gap-1 text-xs sm:text-sm">
                             <button
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                removeMealFromDay(date, mealType);
-                              }}
-                              className="mt-1 text-xs text-red-500 hover:text-red-700"
+                              type="button"
+                              className="text-left rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+                              onClick={openSlotModal}
+                              aria-label={`Change meal for ${slotLabel}: ${meal.name}`}
+                            >
+                              <div className="font-medium truncate">
+                                {meal.name}
+                              </div>
+                              <div className="text-xs text-neutral-600 dark:text-stone-400 truncate">
+                                {meal.category}
+                              </div>
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() =>
+                                removeMealFromDay(date, mealType)
+                              }
+                              className="mt-0.5 text-xs text-red-700 dark:text-red-400 hover:underline text-left"
                             >
                               Remove
                             </button>
                           </div>
                         ) : (
-                          <div className="text-xs sm:text-sm opacity-50">
-                            Click to add meal
-                          </div>
+                          <button
+                            type="button"
+                            className="w-full h-full min-h-[52px] sm:min-h-[72px] text-left rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+                            onClick={openSlotModal}
+                            aria-label={`Add meal for ${slotLabel}`}
+                          >
+                            <span className="text-xs sm:text-sm text-neutral-600 dark:text-stone-400">
+                              Click to add meal
+                            </span>
+                          </button>
                         )}
                       </div>
                     );
@@ -690,7 +708,11 @@ const MealPlanningCalendar: React.FC = () => {
                 </button>
               </div>
 
+              <label htmlFor="meal-plan-recipe-search" className="sr-only">
+                Search recipes
+              </label>
               <input
+                id="meal-plan-recipe-search"
                 type="text"
                 placeholder="Search recipes..."
                 value={searchTerm}
@@ -704,9 +726,10 @@ const MealPlanningCalendar: React.FC = () => {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-64 sm:max-h-96 overflow-y-auto">
                 {filteredRecipes.map((recipe) => (
-                  <div
+                  <button
                     key={recipe.id}
-                    className={`p-3 rounded-lg border cursor-pointer transition-colors ${
+                    type="button"
+                    className={`p-3 rounded-lg border text-left transition-colors ${
                       darkMode
                         ? "border-stone-600 hover:border-stone-500 hover:bg-stone-700"
                         : "border-stone-300 hover:border-stone-400 hover:bg-stone-50"
@@ -718,17 +741,18 @@ const MealPlanningCalendar: React.FC = () => {
                         recipe,
                       )
                     }
+                    aria-label={`Select ${recipe.name} for this meal slot`}
                   >
                     <div className="font-medium text-sm sm:text-base">
                       {recipe.name}
                     </div>
-                    <div className="text-xs sm:text-sm opacity-75">
+                    <div className="text-xs sm:text-sm text-neutral-600 dark:text-stone-400">
                       {recipe.category}
                     </div>
-                    <div className="text-xs opacity-50">
+                    <div className="text-xs text-neutral-500 dark:text-stone-500">
                       {recipe.source === "user" ? "User Recipe" : "API Recipe"}
                     </div>
-                  </div>
+                  </button>
                 ))}
               </div>
             </div>
