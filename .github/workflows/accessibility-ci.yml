@@ -6,6 +6,10 @@ on:
     branches:
       - main
 
+# Least privilege for CodeQL / security scanning (contents read is enough for checkout + npm ci).
+permissions:
+  contents: read
+
 # Opt checkout/setup-node and other JS actions into Node 24 (GitHub deprecation of Node 20 for actions).
 # See: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
 env:

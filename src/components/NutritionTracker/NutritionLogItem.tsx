@@ -24,7 +24,7 @@ const NutritionLogItem: React.FC<NutritionLogItemProps> = ({
         <div className="font-semibold">{meal.name}</div>
         <div
           className={`text-xs mb-1 ${
-            darkMode ? "text-stone-400" : "text-gray-600"
+            darkMode ? "text-stone-300" : "text-gray-600"
           }`}
         >
           {meal.ingredients}
@@ -35,8 +35,13 @@ const NutritionLogItem: React.FC<NutritionLogItemProps> = ({
         </div>
       </div>
       <button
+        type="button"
         onClick={onRemove}
-        className="text-red-500 hover:text-red-700 text-sm ml-2"
+        className={`text-sm ml-2 underline-offset-2 hover:underline ${
+          darkMode
+            ? "text-red-400 hover:text-red-300"
+            : "text-red-700 hover:text-red-800"
+        }`}
       >
         Remove
       </button>

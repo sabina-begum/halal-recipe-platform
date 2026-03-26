@@ -478,7 +478,7 @@ const NutritionTracker: React.FC = () => {
           >
             Nutrition Tracker
           </h1>
-          <p className="text-lg text-neutral-600 dark:text-stone-400">
+          <p className="text-lg text-neutral-600 dark:text-stone-300">
             Monitor your daily nutrition goals and get personalized
             recommendations with CULINARIA
           </p>
@@ -684,7 +684,7 @@ const NutritionTracker: React.FC = () => {
                   </span>
                   <span
                     className={`text-sm ${
-                      darkMode ? "text-stone-400" : "text-gray-500"
+                      darkMode ? "text-stone-300" : "text-gray-600"
                     }`}
                   >
                     / {formatNutrient(goal)}
@@ -749,7 +749,8 @@ const NutritionTracker: React.FC = () => {
         {/* Tips and Recommendations */}
         <div className="bg-gradient-to-r from-green-50 to-blue-50 dark:from-stone-800 dark:to-stone-700 rounded-lg shadow-lg p-6">
           <h3 className="text-xl font-bold text-green-900 dark:text-green-300 mb-4">
-            💡 Tips & Recommendations
+            <span aria-hidden="true">💡 </span>
+            Tips & Recommendations
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>

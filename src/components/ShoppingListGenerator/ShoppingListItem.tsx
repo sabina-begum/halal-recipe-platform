@@ -40,12 +40,20 @@ export default function ShoppingListItem({
         <div className="flex-1">
           <span
             className={`font-medium ${
-              item.checked ? "line-through text-gray-500" : ""
+              item.checked
+                ? darkMode
+                  ? "line-through text-stone-400"
+                  : "line-through text-gray-600"
+                : ""
             }`}
           >
             {item.ingredient}
           </span>
-          <span className="text-sm text-gray-500 ml-2">
+          <span
+            className={`text-sm ml-2 ${
+              darkMode ? "text-stone-300" : "text-gray-600"
+            }`}
+          >
             {item.quantity} {item.unit}
           </span>
         </div>

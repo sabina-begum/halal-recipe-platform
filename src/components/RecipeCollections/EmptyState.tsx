@@ -10,7 +10,7 @@ const EmptyState: React.FC<EmptyStateProps> = ({ message }) => {
   return (
     <div
       className={`text-center py-8 flex items-center justify-center h-full ${
-        darkMode ? "text-stone-400" : "text-gray-600"
+        darkMode ? "text-stone-300" : "text-gray-600"
       }`}
     >
       <p>{message}</p>

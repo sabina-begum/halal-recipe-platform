@@ -20,6 +20,7 @@ export default function ShoppingListHeader({
       </h2>
       <div className="flex gap-2">
         <button
+          type="button"
           onClick={onAddItem}
           className={`px-4 py-2 rounded-lg font-medium transition-colors ${
             darkMode
@@ -30,6 +31,7 @@ export default function ShoppingListHeader({
           + Add Item
         </button>
         <button
+          type="button"
           onClick={onClearList}
           className={`px-4 py-2 rounded-lg font-medium transition-colors ${
             darkMode
